@@ -65,23 +65,17 @@
               ]
             },
             "development": {
+              "buildOptimizer": false,
+              "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
-              "namedChunks": true,
-              "buildOptimizer": false,
               "sourceMap": true,
-              "optimization": {
-                "scripts": true,
-                "styles": {
-                  "minify": false,
-                  "inlineCritical": true
-                },
-                "fonts": true
-              },
-              "outputHashing": "all"
+              "namedChunks": true
             }
-          }
-        },
+          },
+          "defaultConfiguration": "production"
+          },
+      
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
