@@ -4,6 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { UniversiteComponent } from './Admin/universite/universite.component';
 
 const routes: Routes =[
   {
@@ -20,6 +21,19 @@ const routes: Routes =[
         {
       path: '',
       loadChildren: () => import('./Admin/EquipesManagment/equipes-admin/equipes-admin.module').then(m => m.EquipesAdminModule)
+    }
+
+    ]
+  }
+  , {
+    path: 'Universite',
+    component: AdminLayoutComponent,
+
+    children: [
+
+        {
+      path: '',
+      loadChildren: () => import('./Admin/UniversiteManegment/universite/universite.module').then(m => m.UniversiteModule)
     }
 
     ]

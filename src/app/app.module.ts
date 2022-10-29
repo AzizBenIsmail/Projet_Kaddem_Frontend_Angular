@@ -28,6 +28,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import { DetailEquipeAdminManagmentComponent } from './Admin/EquipesManagment/detail-equipe-admin-managment/detail-equipe-admin-managment.component';
 import { UniversiteserviceService } from './Services/ServicesUniversite/universiteservice.service';
+import { UniversiteComponent } from './Admin/universite/universite.component';
+import { UniversiteModule } from './Admin/UniversiteManegment/universite/universite.module';
+import { AddUniversiteComponent } from './Admin/UniversiteManegment/add-universite/add-universite.component';
 
 @NgModule({
     imports: [
@@ -50,8 +53,8 @@ import { UniversiteserviceService } from './Services/ServicesUniversite/universi
         MatCheckboxModule,
         MatDialogModule,
         MatTableModule,
-        MatInputModule
-
+        MatInputModule,
+        UniversiteModule,
     ],
   declarations: [
     AppComponent,
@@ -63,6 +66,8 @@ import { UniversiteserviceService } from './Services/ServicesUniversite/universi
     AddEquipeComponent,
     ConfirmDialogComponent,
     DetailEquipeAdminManagmentComponent,
+    UniversiteComponent,
+    AddUniversiteComponent,
 
   ],
   providers: [EquipeService,UniversiteserviceService],
