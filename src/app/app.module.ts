@@ -27,7 +27,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import { DetailEquipeAdminManagmentComponent } from './Admin/EquipesManagment/detail-equipe-admin-managment/detail-equipe-admin-managment.component';
-import { UniversiteserviceService } from './Services/ServicesUniversite/universiteservice.service';
 
 @NgModule({
     imports: [
@@ -65,7 +64,7 @@ import { UniversiteserviceService } from './Services/ServicesUniversite/universi
     DetailEquipeAdminManagmentComponent,
 
   ],
-  providers: [EquipeService,UniversiteserviceService],
+  providers: [EquipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
