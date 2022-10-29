@@ -10,7 +10,22 @@ const routes: Routes =[
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, {
+  },
+  {
+    path: 'Equipes',
+    component: AdminLayoutComponent,
+
+    children: [
+
+        {
+      path: '',
+      loadChildren: () => import('./Admin/EquipesManagment/equipes-admin/equipes-admin.module').then(m => m.EquipesAdminModule)
+    }
+
+    ]
+  }
+  ,
+  {
     path: '',
     component: AdminLayoutComponent,
     children: [{

@@ -1,0 +1,171 @@
+<!--
+        <app-add-equipe></app-add-equipe>
+
+        <div class="border">
+            <a routerLink="/Equipes/addEquipe" class="btn btn-info">Ajouter une equipe</a>
+        </div>
+
+        <div class="card my-5">
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom Equipe</th>
+                        <th scope="col">Valide?</th>
+                        <th scope="col">Actions</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let equipe of equipes">
+                        <td>{{ equipe.idEquipe }}</td>
+                        <td>{{ equipe.nomEquipe }}</td>
+
+                        <td *ngIf="equipe.isValid== true" ><a routerLink="/equipe.idEquipe" ><i style="color: green" class="fa fa-check fa-1x" aria-hidden="true"> </i></a></td>
+                        <td *ngIf="equipe.isValid== false" ><a routerLink="/hi" ><i style="color: red" class="fa fa-circle-thin fa-1x" aria-hidden="true"> </i></a> </td>
+                        <td  ><button (click)="updateEquipe(equipe.idEquipe)" class='btn btn-info'
+                                      data-toggle="modal" data-target="#myModal">Update</button>  </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+
+<div class="main-content">
+
+
+    <div class="container-fluid">
+        <div class="dls-menu-item">
+            <button (click)="onPress()">Ajouter une equipe</button>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+
+
+        <div id="comp-render" *ngIf="display">
+            <app-add-equipe></app-add-equipe>
+        </div>
+
+
+
+
+        <article class="table-header">
+
+            <div>
+
+                <button class="button-add-row" mat-button (click)="addRow()">
+                    Add Row
+                </button>
+            </div>
+        </article>
+        <table width="100%" mat-table [dataSource]="dataSource">
+            <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
+                <th mat-header-cell *matHeaderCellDef>
+                    {{ col.label }}
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    <div [ngSwitch]="col.type" *ngIf="!element.isEdit">
+                        <ng-container *ngSwitchCase="'isSelected'">
+                            <mat-checkbox
+                                    (change)="element.isSelected = $event.checked"
+                            ></mat-checkbox>
+                        </ng-container>
+
+
+
+
+
+                        <div class="btn-edit" *ngSwitchCase="'isEdit'">
+                            <button mat-button (click)="element.isEdit = !element.isEdit">
+                                Edit
+                            </button>
+                            <button
+                                    mat-button
+                                    class="button-remove"
+                                    (click)="removeRow(element.idEquipe)"
+                            >
+                                Delete
+                            </button>
+                            <button *ngIf="!element.isValid"
+                                    mat-button
+                                    class="mat-button-toggle-checked"
+
+                                    (click)="ChangeValiditeRow(element.idEquipe,15)"
+                            >
+                                <i style="color: red" class="fa fa-circle-thin fa-1x" aria-hidden="true"> </i>
+                      {{text}}
+                            </button>
+                            <button *ngIf="element.isValid"
+                                    mat-button
+                                    class="mat-button-toggle-checked"
+
+                                    (click)="ChangeValiditeRow(element.idEquipe,15)"
+                            >
+                                <i style="color: green" class="fa fa-check fa-1x" aria-hidden="true"> </i>
+                               {{text}}
+                            </button>
+
+
+                        </div>
+
+                        <span *ngSwitchDefault>
+                        {{ element[col.key] }}
+                         </span>
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div [ngSwitch]="col.type" *ngIf="element.isEdit">
+                        <div *ngSwitchCase="'isSelected'"></div>
+                        <div class="btn-edit" *ngSwitchCase="'isEdit'">
+                            <button
+                                    mat-button
+                                    (click)="editRow(element)"
+                                    [disabled]="disableSubmit(element.idEquipe)"
+                            >
+                                Done
+                            </button>
+
+
+
+                        </div>
+
+
+                        <mat-form-field class="form-input" *ngSwitchDefault>
+                            <input
+                                    matInput
+                                    [required]="col.required"
+                                    [pattern]="col.pattern"
+                                    [type]="col.type"
+                                    [(ngModel)]="element[col.key]"
+                                    (change)="inputHandler($event, element.id, col.key)"
+                            />
+                        </mat-form-field>
+                    </div>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+
+    </div>
+</div>
+
+
+
+
+
+
