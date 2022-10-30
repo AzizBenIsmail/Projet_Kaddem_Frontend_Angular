@@ -27,27 +27,6 @@ export class ProjetComponent implements OnInit {
         this.projets = data;
       });
     }
-    deleteProjet(id:number){
-      this._projetService.deleteProjet(id).subscribe(
-        data => {
-          console.log('deleted response', data);
-          this.listProjets();
-        }
-      )
-    }
-
-    enregistrerProjet(f:NgForm){
-     
-      this._projetService.saveProjet(f.value).subscribe(
-        data => {
-          console.log('response', data);
-          this.listProjets();
-
-        }
-      )
-         
-
-    }
   
   }
 
