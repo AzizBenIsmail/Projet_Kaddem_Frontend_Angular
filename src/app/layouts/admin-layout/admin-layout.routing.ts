@@ -9,6 +9,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { EquipesComponent } from 'app/Admin/equipes/equipes.component';
+import { ListThreadComponent } from 'app/Admin/Forum/Thread/list-thread/list-thread.component';
 
 import {EquipesAdminManagmentComponent} from '../../Admin/EquipesManagment/equipes-admin-managment/equipes-admin-managment.component';
 
@@ -69,7 +70,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'Equipes',        component: EquipesComponent },
     { path: 'Projets',        component: ProjetComponent },
-    { path: 'Taches',        component: TacheComponent }
+    { path: 'Taches',        component: TacheComponent },
+    { path: 'Forum',        component: ListThreadComponent }
 
 
 ];

@@ -1,63 +1,80 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+import { Routes, RouterModule } from "@angular/router";
 
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { UniversiteComponent } from './Admin/universite/universite.component';
+import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
+import { UniversiteComponent } from "./Admin/universite/universite.component";
+import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
 
-const routes: Routes =[
+const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
+    path: "",
+    redirectTo: "dashboard",
+    pathMatch: "full",
   },
   {
-    path: 'Equipes',
+    path: "Equipes",
     component: AdminLayoutComponent,
 
     children: [
-
-        {
-      path: '',
-      loadChildren: () => import('./Admin/EquipesManagment/equipes-admin/equipes-admin.module').then(m => m.EquipesAdminModule)
-    }
-
-    ]
-  }
-  , {
-    path: 'Universite',
-    component: AdminLayoutComponent,
-
-    children: [
-
-        {
-      path: '',
-      loadChildren: () => import('./Admin/UniversiteManegment/universite/universite.module').then(m => m.UniversiteModule)
-    }
-
-    ]
-  }
-  ,
+      {
+        path: "",
+        loadChildren: () =>
+          import(
+            "./Admin/EquipesManagment/equipes-admin/equipes-admin.module"
+          ).then((m) => m.EquipesAdminModule),
+      },
+    ],
+  },
   {
-    path: '',
+    path: "Universite",
     component: AdminLayoutComponent,
-    children: [{
-      path: '',
-      loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
-    }]
-  }
+
+    children: [
+      {
+        path: "",
+        loadChildren: () =>
+          import(
+            "./Admin/UniversiteManegment/universite/universite.module"
+          ).then((m) => m.UniversiteModule),
+      },
+    ],
+  },
+  {
+    path: "",
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: "",
+        loadChildren: () =>
+          import("./layouts/admin-layout/admin-layout.module").then(
+            (m) => m.AdminLayoutModule
+          ),
+      },
+    ],
+  },
+  {
+    path: "Forum",
+    component: AdminLayoutComponent,
+
+    children: [
+      {
+        path: "",
+        component: ListThreadComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-       useHash: false
-    })
+    RouterModule.forRoot(routes, {
+      useHash: false,
+    }),
   ],
-  exports: [
-  ],
+  exports: [],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
