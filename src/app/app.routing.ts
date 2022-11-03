@@ -28,6 +28,21 @@ const routes: Routes = [
     ],
   },
   {
+    path: "Projets",
+    component: AdminLayoutComponent,
+
+    children: [
+      {
+        path: "",
+        loadChildren: () =>
+          import(
+            "./Admin/Projets/projet-module/projet-module.module"
+          ).then((m) => m.ProjetModuleModule),
+      },
+    ],
+  },
+  
+  {
     path: "Universite",
     component: AdminLayoutComponent,
 

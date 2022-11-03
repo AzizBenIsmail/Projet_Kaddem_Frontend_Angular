@@ -13,7 +13,6 @@ import { ListThreadComponent } from 'app/Admin/Forum/Thread/list-thread/list-thr
 
 import {EquipesAdminManagmentComponent} from '../../Admin/EquipesManagment/equipes-admin-managment/equipes-admin-managment.component';
 
-import { ProjetComponent } from 'app/Admin/projet/projet.component';
 import { TacheComponent } from 'app/Admin/tache/tache.component';
 
 
@@ -69,8 +68,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'Equipes',        component: EquipesComponent },
-    { path: 'Projets',        component: ProjetComponent },
-    { path: 'Taches',        component: TacheComponent },
+  
     { path: 'Forum',        component: ListThreadComponent }
 
 
