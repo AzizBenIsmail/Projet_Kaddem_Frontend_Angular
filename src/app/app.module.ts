@@ -7,7 +7,6 @@ import { AppRoutingModule } from "./app.routing";
 import { ComponentsModule } from "./components/components.module";
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
-import { TComponent } from "./t/t.component";
 import { EquipesComponent } from "./Admin/equipes/equipes.component";
 import { EquipeService } from "./Services/ServicesEquipes/equipe.service";
 import { MatIconModule } from "@angular/material/icon";
@@ -78,10 +77,8 @@ import { ProjetModuleModule } from './Admin/Projets/projet-module/projet-module.
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    TComponent,
     EquipesComponent,
     TacheComponent,
-    TComponent,
     EquipesComponent,
     EquipesAdminManagmentComponent,
     UpdateEquipeComponent,
