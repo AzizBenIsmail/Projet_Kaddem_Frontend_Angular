@@ -22,18 +22,6 @@ export const ROUTES: RouteInfo[] = [
     icon: "content_paste",
     class: "",
   },
-  {
-    path: "/typography",
-    title: "Typography",
-    icon: "library_books",
-    class: "",
-  },
-  {
-    path: "/notifications",
-    title: "Notifications",
-    icon: "notifications",
-    class: "",
-  },  
   { path: "/Forum", title: "Forum", icon: "groups", class: "" },
 ];
 
