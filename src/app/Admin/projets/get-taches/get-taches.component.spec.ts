@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TacheComponent } from './tache.component';
+import { GetTachesComponent } from './get-taches.component';
 
-describe('TacheComponent', () => {
-  let component: TacheComponent;
-  let fixture: ComponentFixture<TacheComponent>;
+describe('GetTachesComponent', () => {
+  let component: GetTachesComponent;
+  let fixture: ComponentFixture<GetTachesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TacheComponent ]
+      declarations: [ GetTachesComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TacheComponent);
+    fixture = TestBed.createComponent(GetTachesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

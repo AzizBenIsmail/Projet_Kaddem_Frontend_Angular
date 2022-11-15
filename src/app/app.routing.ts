@@ -14,7 +14,7 @@ const routes: Routes = [
   },
 
   {path: "Projets",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
-        import("./Admin/Projets/projet-module/projet-module.module").then((m) => m.ProjetModuleModule),},],
+        import("./Admin/projets/projets.module").then((m) => m.ProjetsModule),},],
   },
 
   {path: "Universite",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>

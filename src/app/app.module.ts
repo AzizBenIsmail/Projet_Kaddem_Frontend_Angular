@@ -12,7 +12,7 @@ import { EquipeService } from "./Services/ServicesEquipes/equipe.service";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { AdminLayoutModule } from "./layouts/admin-layout/admin-layout.module";
-import { TacheComponent } from "./Admin/tache/tache.component";
+
 import { ProjetService } from "./Services/ProjetService/projet.service";
 import { MatInputModule } from "@angular/material/input";
 import { MatRippleModule } from "@angular/material/core";
@@ -39,11 +39,8 @@ import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create
 import { UpdateThreadComponent } from "./Admin/Forum/Thread/update-thread/update-thread.component";
 import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
 import { DetailsThreadComponent } from "./Admin/Forum/Thread/details-thread/details-thread.component";
-import { AddProjetComponent } from './Admin/Projets/add-projet/add-projet.component';
-import { UpdateProjetComponent } from './Admin/Projets/update-projet/update-projet.component';
-import { GetProjetsComponent } from './Admin/Projets/get-projets/get-projets.component';
-import { DetailsProjetComponent } from './Admin/Projets/details-projet/details-projet.component';
-import { ProjetModuleModule } from './Admin/Projets/projet-module/projet-module.module';
+import { ProjetsModule } from './Admin/projets/projets.module';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -72,13 +69,12 @@ import { ProjetModuleModule } from './Admin/Projets/projet-module/projet-module.
     MatTableModule,
     MatInputModule,
     UniversiteModule,
-    ProjetModuleModule,
+    ProjetsModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     EquipesComponent,
-    TacheComponent,
     EquipesComponent,
     EquipesAdminManagmentComponent,
     UpdateEquipeComponent,
@@ -90,11 +86,7 @@ import { ProjetModuleModule } from './Admin/Projets/projet-module/projet-module.
     CreateThreadComponent,
     UpdateThreadComponent,
     ListThreadComponent,
-    DetailsThreadComponent,
-    AddProjetComponent,
-    UpdateProjetComponent,
-    GetProjetsComponent,
-    DetailsProjetComponent,
+    DetailsThreadComponent
   ],
   providers: [EquipeService, ProjetService],
   bootstrap: [AppComponent],
