@@ -12,7 +12,6 @@ import { EquipeService } from "./Services/ServicesEquipes/equipe.service";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { AdminLayoutModule } from "./layouts/admin-layout/admin-layout.module";
-
 import { ProjetService } from "./Services/ProjetService/projet.service";
 import { MatInputModule } from "@angular/material/input";
 import { MatRippleModule } from "@angular/material/core";
