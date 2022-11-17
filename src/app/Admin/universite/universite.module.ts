@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UniversiteRoutingModule } from './universite-routing.module';
-import { RecupererUnivComponent } from './recuperer-univ/recuperer-univ.component';
+import { AllUniversiteComponent } from './all-universite/all-universite.component';
 
 
 @NgModule({
   declarations: [
-    RecupererUnivComponent
+    AllUniversiteComponent
   ],
   imports: [
     CommonModule,

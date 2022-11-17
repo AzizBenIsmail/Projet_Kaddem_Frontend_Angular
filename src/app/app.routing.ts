@@ -16,9 +16,13 @@ const routes: Routes = [
   {path: "Projets",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
         import("./Admin/projets/projets.module").then((m) => m.ProjetsModule),},],
   },
-
+/*
   {path: "Universite",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
           import("./Admin/UniversiteManegment/universite-Module/universite.module").then((m) => m.UniversiteModule),},],
+  },
+*/
+  {path: "Universite",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
+          import("./Admin/universite/universite.module").then((m) => m.UniversiteModule),},],
   },
 
   {path: "",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>

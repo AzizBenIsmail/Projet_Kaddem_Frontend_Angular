@@ -31,7 +31,6 @@ import { DetailEquipeAdminManagmentComponent } from "./Admin/EquipesManagment/de
 import { UniversiteserviceService } from "./Services/ServicesUniversite/universiteservice.service";
 import { UniversiteComponent } from "./Admin/UniversiteManegment/universite/universite.component";
 import { UniversiteModule } from "./Admin/UniversiteManegment/universite-Module/universite.module";
-import { AddUniversiteComponent } from "./Admin/UniversiteManegment/add-universite/add-universite.component";
 import { AddEquipeComponent } from "./Admin/EquipesManagment/add-equipe/add-equipe.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create-thread.component";
@@ -81,7 +80,6 @@ import { ProjetsModule } from './Admin/projets/projets.module';
     ConfirmDialogComponent,
     DetailEquipeAdminManagmentComponent,
     UniversiteComponent,
-    AddUniversiteComponent,
     CreateThreadComponent,
     UpdateThreadComponent,
     ListThreadComponent,

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecupererUnivComponent } from './recuperer-univ.component';
+import { AllUniversiteComponent } from './all-universite.component';
 
-describe('RecupererUnivComponent', () => {
-  let component: RecupererUnivComponent;
-  let fixture: ComponentFixture<RecupererUnivComponent>;
+describe('AllUniversiteComponent', () => {
+  let component: AllUniversiteComponent;
+  let fixture: ComponentFixture<AllUniversiteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecupererUnivComponent ]
+      declarations: [ AllUniversiteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RecupererUnivComponent);
+    fixture = TestBed.createComponent(AllUniversiteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
