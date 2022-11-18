@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-get-taches',
   templateUrl: './get-taches.component.html',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetTachesComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  
+ 
+   constructor() {
+    
+    }
+  
+    ngOnInit(): void {
+     
+    
+   }
+   
   }
-
-}

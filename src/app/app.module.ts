@@ -39,6 +39,9 @@ import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-threa
 import { DetailsThreadComponent } from "./Admin/Forum/Thread/details-thread/details-thread.component";
 import { ProjetsModule } from './Admin/projets/projets.module';
 
+
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,

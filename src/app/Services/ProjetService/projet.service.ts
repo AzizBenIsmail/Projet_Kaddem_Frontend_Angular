@@ -11,6 +11,7 @@ export class ProjetService {
   private getUrl: string= "http://localhost:8083/kaddem/Projet/";
   constructor(private _httpClient: HttpClient) { }
   getProjets(): Observable<Projet[]> {
+    console.log("get projets from projetService puis associer le  resolver à la route")
     return this._httpClient.get<Projet[]>(this.getUrl+"findAllProjets").pipe(
       map(response => response)
     )
@@ -21,13 +22,16 @@ export class ProjetService {
   }
 
   getProjet(id: number): Observable<Projet> {
-    return this._httpClient.get<Projet>(`${this.getUrl}/${id}`).pipe(
+    return this._httpClient.get<Projet>(`${this.getUrl+"findProjectById"}/${id}`).pipe(
       map(response => response)
     )
   }
-
-  deleteProjet(id: number): Observable<any> {
+  
+ deleteProjet(id: number): Observable<any> {
     return this._httpClient.delete(`${this.getUrl+"deleteProjetbyId"}/${id}`, {responseType: 'text'});
   }
 }
+
+
+
 
