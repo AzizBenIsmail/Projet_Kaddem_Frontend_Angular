@@ -1,1 +1,173 @@
-<p>add-projet works!</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+           
+       
+          
+
+
+
+            
+                     
+                      <div class="card-body">
+                          <form #f="ngForm">
+                              <div class="row">
+                                  <div class="col-md-5">
+                                    <mat-form-field class="example-full-width">
+                                        <input type="text" matInput placeholder="Nom de projet" name="nomProjet"   required minlength="3" #id="ngModel" [(ngModel)]="projet.nomProjet" >
+                                        <div *ngIf="id.invalid && id.touched">
+                                          <div *ngIf="id.errors?.['minlength']">
+
+
+                                            <div
+                                            class="alert alert-info">
+                                           Le nom de projet doit avoir au moins 3 caractères    </div>
+                                            
+                                              </div>
+                                  <div *ngIf="id.errors?.['required']">
+                                    <div
+                                    class="alert alert-primary">
+                                   Le nom de projet est obligatoire  </div>
+                              </div>
+                          </div>
+                                      </mat-form-field>
+                                  </div>
+
+                                  
+                                  <div class="col-md-12">
+                                     
+                                     
+                                   
+                                      
+                                          <mat-form-field appearance="fill">
+                                              <mat-label>Type de projet</mat-label>
+                                              <select matNativeControl  name="typeProjet"  required #idT="ngModel" [(ngModel)]="projet.typeProjet" >
+                                              
+                                                <option value="PFE">PFE</option>
+                                                <option value="PIDEV">PIDEV</option>
+                                                <option value="JEUXVIDEO">JEUXVIDEO</option>
+                                               
+                
+                                              </select>
+                                            </mat-form-field>
+  
+  
+                                      
+                                    
+                                  </div>
+  
+                                  <div class="col-md-5">
+                                      <mat-form-field class="example-full-width">
+                                        <input  matInput placeholder="Durée de projet " name="dureeProjet" [(ngModel)]="projet.dureeProjet"  required  #idD="ngModel">
+                                     
+                                        
+
+                                        <div *ngIf="idD.invalid && idD.touched">
+                                        
+                                  <div *ngIf="idD.errors?.['required']">
+                                    <div
+                                    class="alert alert-primary">
+                                   Le durée de projet est  obligatoire  </div>
+                              </div>
+                          </div>
+
+
+
+
+
+                                      </mat-form-field>
+                                  </div>
+                                  
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input  type="date" matInput placeholder="Date début" name="dateDebutP" [(ngModel)]="projet.dateDebutP"  required   #idDD="ngModel" >
+                                  
+                                  
+                                  
+                                      <div *ngIf="idDD.invalid && idDD.touched">
+                                      
+
+                                     
+                                        
+                                          
+                              <div *ngIf="idDD.errors?.['required']">
+                                <div
+                                class="alert alert-primary">
+                               La date  de projet est obligatoire  </div>
+                          </div>
+                      </div>
+                                  
+                                  
+                                  
+                                  
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input  type="date" matInput placeholder="Date fin"  name="dateFinP" [(ngModel)]="projet.dateFinP"  required  #idDF="ngModel" >
+                                  
+                                  
+                                  
+                                  
+                                      <div *ngIf="idDF.invalid && idDF.touched">
+                                      
+
+                                          <div
+                                          class="alert alert-info">
+                                         La date  doit etre superieure à la date système    </div>
+                                          
+                                            
+                                <div *ngIf="idDF.errors?.['required']">
+                                  <div
+                                  class="alert alert-primary">
+                                 La date  de projet est obligatoire  </div>
+                            </div>
+                        </div>
+                                  
+                                  
+                                  
+                                  
+                                    </mat-form-field>
+                                  </div>
+                              </div>
+                             
+
+                            
+
+                        
+
+                           
+                         
+                     
+
+                             
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right"  (click)="enregistrerProjet(f)"  [disabled]="f.invalid">Envoyer</button>
+                            
+                          <button mat-raised-button  class="btn btn-danger pull-right"    [routerLink]="['/Projets']">Annuler</button>
+                          
+                          <div class="clearfix"></div>
+                          </form>
+                      </div>
+                 
+  
+  
+                 
+  
+
+
+                  
+
+
+
+
+        <!-- Modal footer -->  
+        
+          
+    
+      </div>  
+    </div>  
+  </div>  
+
+
