@@ -11,7 +11,7 @@ export class ProjetService {
   private getUrl: string= "http://localhost:8083/kaddem/Projet/";
   constructor(private _httpClient: HttpClient) { }
   getProjets(): Observable<Projet[]> {
-    console.log("get projets from projetService puis associer le  resolver à la route")
+   
     return this._httpClient.get<Projet[]>(this.getUrl+"findAllProjets").pipe(
       map(response => response)
     )
