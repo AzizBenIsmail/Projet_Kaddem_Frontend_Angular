@@ -1,1 +1,80 @@
-<p>create-thread works!</p>
+<button
+  type="button"
+  class="btn btn-primary"
+  data-toggle="modal"
+  data-target="#exampleModal"
+>
+  Launch demo modal
+</button>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add thread</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="f.form.valid && addThread()">
+          <div class="from-group">
+            <label class="label" for="name">Question</label>
+            <input
+              type="text"
+              id="question"
+              class="form-control"
+              name="question"
+              [(ngModel)]="thread.question"
+              #question="ngModel"
+              required
+            />
+            <div class="alert-danger" *ngIf="!question.valid && f.submitted">IS REQUIRED ...</div>
+          </div>
+          <div class="from-group">
+            <label class="label" for="display">Display</label>
+            <div class="form-control">
+              <label class="label">On </label>
+              <input type="radio" value="true" name="display" [(ngModel)]="thread.display" #display="ngModel" required />
+              <label class="label">OFF </label>
+              <input type="radio" value="false" name="display" [(ngModel)]="thread.display" #display="ngModel" />
+            </div>
+            <div class="alert-danger" *ngIf="!display.valid && f.submitted">IS REQUIRED...</div>
+          </div>
+
+          <div class="from-group">
+            <label class="label" for="name">Thread Type</label>
+            <select class="label" id="ThreadType" name="threadType" [(ngModel)]="thread.object" #threadType="ngModel" required>
+              <option value="saab">Saab</option>
+              <option value="fiat">Fiat</option>
+              <option value="audi" >Audi</option>
+            </select>
+            <div class="alert-danger" *ngIf="!threadType.valid && f.submitted">IS REQUIRED ...</div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
