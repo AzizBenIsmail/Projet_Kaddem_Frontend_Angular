@@ -28,6 +28,10 @@ const routes: Routes = [
           import("./Admin/universite/universite.module").then((m) => m.UniversiteModule),},],
   },
 
+  {path: "Departement",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
+          import("./Admin/departement/departement.module").then((m) => m.DepartementModule),},],
+  },
+
   {path: "",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
           import("./layouts/admin-layout/admin-layout.module").then((m) => m.AdminLayoutModule),},],
   },

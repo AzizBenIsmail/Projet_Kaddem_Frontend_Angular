@@ -41,6 +41,7 @@ import {CreateEquipeComponent} from './Admin/EquipesManagment/createEquipe/creat
 import { NotFoundComponent } from './error/not-found/not-found.component';
 import {MatCardModule} from '@angular/material/card';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import { DepartementModule } from './Admin/departement/departement.module';
 
 
 
@@ -74,7 +75,8 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     MatInputModule,
     MatCardModule,
     ProjetsModule,
-    ModalModule
+    ModalModule,
+    DepartementModule
   ],
   declarations: [
     AppComponent,
