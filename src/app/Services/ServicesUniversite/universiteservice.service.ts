@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Universite } from 'app/models/Universite';
+import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,10 +9,10 @@ import { Observable } from 'rxjs';
 })
 export class UniversiteserviceService {
   private UniversiteAdminUrl: string;
-
+ 
 
   constructor(private http: HttpClient) {
-    this.UniversiteAdminUrl="http://localhost:8083/kaddem/Universite/"
+    this.UniversiteAdminUrl=environment.baseUrl+"Universite/"
    }
    public findAllUniversite(): Observable<Universite> {
     return this.http.get<Universite>(this.UniversiteAdminUrl+"All");

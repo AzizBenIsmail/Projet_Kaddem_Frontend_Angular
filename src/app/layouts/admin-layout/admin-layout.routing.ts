@@ -8,7 +8,7 @@ import { ListThreadComponent } from 'app/Admin/Forum/Thread/list-thread/list-thr
 
 import {EquipesAdminManagmentComponent} from '../../Admin/EquipesManagment/equipes-admin-managment/equipes-admin-managment.component';
 
-import { TacheComponent } from 'app/Admin/tache/tache.component';
+
 
 
 export const AdminLayoutRoutes: Routes = [

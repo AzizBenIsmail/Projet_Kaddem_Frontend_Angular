@@ -1,0 +1,100 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+
+
+
+
+
+
+
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title ">Table des projets
+               
+
+
+                  
+                    
+
+                 <!--   <a [routerLink]="['add']">add</a> -->
+             <button mat-raised-button [routerLink]="['add']"
+                type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="glyphicon glyphicon-plus">
+                    <i class="material-icons">add</i>
+                </button>
+        
+            </h4>
+                <p class="card-category"></p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                Nom 
+                            </th>
+                            <th>
+                                Durée
+                            </th>
+                            <th>
+                                Date début
+                            </th>
+                            <th>
+                               Date fin 
+                            </th>
+                            <th>
+                                Type
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </thead>
+                        <tbody>
+                
+                            <tr *ngFor="let projet of projets" >
+                               
+                                <td>{{ projet.nomProjet }}</td>
+                                <td>{{ projet.dureeProjet }}</td>
+                                <td>{{ projet.dateDebutP }}</td>
+                                <td>{{ projet.dateFinP }}</td>
+                                <td>{{ projet.typeProjet }}</td>
+                                <td>
+                                   
+                                 
+                                   <a [routerLink]="['update/'+projet.idProjet]"  class="fa fa-pencil" ></a>
+                                   &nbsp;
+                               
+                                   <a (click)="deleteProjet(projet.idProjet)" class="fa fa-trash"  > </a>
+                                 
+                                  
+                                </td>
+                               
+                           
+                            </tr>     
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+</div>
+</div>

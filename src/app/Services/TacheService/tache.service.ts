@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TacheService {
-  private getUrl: string= "http://localhost:8084/dbkaddem2/tache";
+  private getUrl: string= "http://localhost:8083/kaddem/Tache/";
   constructor(private _httpClient: HttpClient) { }
   getTaches(): Observable<Tache[]> {
     return this._httpClient.get<Tache[]>(this.getUrl).pipe(
@@ -15,17 +15,38 @@ export class TacheService {
     )
   }
 
-  saveTache(tache: Tache): Observable<Tache> {
-    return this._httpClient.post<Tache>(this.getUrl, tache);
+  saveTache(tache: Tache,idProjet: number): Observable<Tache> {
+    return this._httpClient.post<Tache>(`${this.getUrl+"addTache"}/${idProjet}`, tache);
   }
 
-  getTache(id: number): Observable<Tache> {
-    return this._httpClient.get<Tache>(`${this.getUrl}/${id}`).pipe(
+
+  updateTache(tache: Tache): Observable<Tache> {
+    return this._httpClient.put<Tache>(this.getUrl+"updateTache", tache);
+  }
+
+
+
+
+
+
+  getTache(idTache: number): Observable<Tache> {
+    return this._httpClient.get<Tache>(`${this.getUrl+"findTacheById"}/${idTache}`).pipe(
       map(response => response)
     )
   }
 
-  deleteTache(id: number): Observable<any> {
-    return this._httpClient.delete(`${this.getUrl}/${id}`, {responseType: 'text'});
+  deleteTache(idTache: number): Observable<any> {
+    return this._httpClient.delete(`${this.getUrl+"deleteTacheById"}/${idTache}`, {responseType: 'text'});
   }
+
+ 
+
+
+  getTachesByProjet(idProjet: number): Observable<Tache[]> {
+    return this._httpClient.get<Tache[]>(`${this.getUrl+"findTachesByProjet"}/${idProjet}`).pipe(
+      map(response => response)
+    )
+  }
+
+
 }

@@ -12,7 +12,6 @@ import { EquipeService } from "./Services/ServicesEquipes/equipe.service";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { AdminLayoutModule } from "./layouts/admin-layout/admin-layout.module";
-import { TacheComponent } from "./Admin/tache/tache.component";
 import { ProjetService } from "./Services/ProjetService/projet.service";
 import { MatInputModule } from "@angular/material/input";
 import { MatRippleModule } from "@angular/material/core";
@@ -28,89 +27,68 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { ConfirmDialogComponent } from "./Admin/EquipesManagment/confirm-dialog/confirm-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
+import { DetailEquipeAdminManagmentComponent } from "./Admin/EquipesManagment/detail-equipe-admin-managment/detail-equipe-admin-managment.component";
 import { UniversiteserviceService } from "./Services/ServicesUniversite/universiteservice.service";
 import { UniversiteComponent } from "./Admin/UniversiteManegment/universite/universite.component";
 import { UniversiteModule } from "./Admin/UniversiteManegment/universite-Module/universite.module";
-import { AddUniversiteComponent } from "./Admin/UniversiteManegment/add-universite/add-universite.component";
 import { AddEquipeComponent } from "./Admin/EquipesManagment/add-equipe/add-equipe.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create-thread.component";
 import { UpdateThreadComponent } from "./Admin/Forum/Thread/update-thread/update-thread.component";
 import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
 import { DetailsThreadComponent } from "./Admin/Forum/Thread/details-thread/details-thread.component";
-import { AddProjetComponent } from './Admin/Projets/add-projet/add-projet.component';
-import { UpdateProjetComponent } from './Admin/Projets/update-projet/update-projet.component';
-import { GetProjetsComponent } from './Admin/Projets/get-projets/get-projets.component';
-import { DetailsProjetComponent } from './Admin/Projets/details-projet/details-projet.component';
-import { ProjetModuleModule } from './Admin/Projets/projet-module/projet-module.module';
-import { DetailEquipeAdminModule } from './Admin/DetailEquipesManagement/detail-equipe-admin/detail-equipe-admin.module';
-import { DetailEquipeAdminMangmComponent } from './Admin/DetailEquipesManagement/detailEquipeAdmin/detail-equipe-admin-mangm/detail-equipe-admin-mangm.component';
-import { CreateEquipeComponent } from './Admin/EquipesManagment/createEquipe/create-equipe/create-equipe.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { DetailEquipeComponent } from './Admin/EquipesManagment/detail-equipe/detail-equipe.component';
-import {ModalModule} from 'ngx-bootstrap/modal';
-import { ContactAdminDevEquipesComponent } from './Admin/EquipesManagment/contact-admin-dev-equipes/contact-admin-dev-equipes.component';
+import { ProjetsModule } from './Admin/projets/projets.module';
+import { NotFoundComponent } from './error/not-found/not-found.component';
+
+
+
+
 @NgModule({
-    imports: [
-        BrowserAnimationsModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        ComponentsModule,
-        RouterModule,
-        AppRoutingModule,
-        HttpClientModule,
-        MatIconModule,
-        MatButtonModule,
-        AdminLayoutModule,
-        MatRippleModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatTooltipModule,
-        MatChipsModule,
-        NgbModule,
-        EquipesAdminModule,
-        MatDatepickerModule,
-        MatFormFieldModule,
-        MatCheckboxModule,
-        MatDialogModule,
-        MatTableModule,
-        MatInputModule,
-        UniversiteModule,
-        ProjetModuleModule,
-        DetailEquipeAdminModule,
-        MatCardModule,
-        MatProgressSpinnerModule,
-        ModalModule,
-    ],
+  imports: [
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ComponentsModule,
+    RouterModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MatIconModule,
+    MatButtonModule,
+    AdminLayoutModule,
+    MatRippleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatChipsModule,
+    NgbModule,
+    EquipesAdminModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatTableModule,
+    MatInputModule,
+    UniversiteModule,
+    ProjetsModule
+  ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     EquipesComponent,
-    TacheComponent,
     EquipesComponent,
     EquipesAdminManagmentComponent,
     UpdateEquipeComponent,
     AddEquipeComponent,
     ConfirmDialogComponent,
-
+    DetailEquipeAdminManagmentComponent,
     UniversiteComponent,
-    AddUniversiteComponent,
     CreateThreadComponent,
     UpdateThreadComponent,
     ListThreadComponent,
     DetailsThreadComponent,
-    AddProjetComponent,
-    UpdateProjetComponent,
-    GetProjetsComponent,
-    DetailsProjetComponent,
-
-    DetailEquipeAdminMangmComponent,
-      CreateEquipeComponent,
-      DetailEquipeComponent,
-      ContactAdminDevEquipesComponent,
+    NotFoundComponent
   ],
   providers: [EquipeService, ProjetService],
   bootstrap: [AppComponent],

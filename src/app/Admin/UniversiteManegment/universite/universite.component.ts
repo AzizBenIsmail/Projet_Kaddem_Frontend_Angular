@@ -118,6 +118,9 @@ subscribe(data=>{
     const newRow: Universite = {
       idUniversite: 0,
       nomUniversite: '',
+      etatUniversite: '',
+      surfaceUniversite: 0,
+      reputationUniversite: '',
       isValid: true,
       isDeleted:false,
       isSelected:false,

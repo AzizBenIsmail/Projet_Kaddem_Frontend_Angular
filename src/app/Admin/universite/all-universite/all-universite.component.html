@@ -1,0 +1,83 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <p>all-universite works!</p>
+   <!-- <table border="4">
+      <thead>
+        <tr>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <div *ngFor="let uni of universites">
+            <tr>    
+        <td>    {{ uni.idUniversite }} </td> 
+        <td>    {{ uni.nomUniversite }} </td> 
+        <td>    {{ uni.etatUniversite }} </td> 
+        <td>    {{ uni.surfaceUniversite }} </td> 
+        <td>    {{ uni.reputationUniversite }} </td> 
+        </tr>
+
+          </div>
+        
+    
+      </tbody>
+    </table> -->
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title ">Universite</h4>
+                <p class="card-category"> Tout les universites</p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        
+                        <thead class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Nom
+                            </th>
+                            <th>
+                                Etat
+                            </th>
+                            <th>
+                                Surface
+                            </th>
+                            <th>
+                                Reputation
+                            </th>
+                        </thead>
+                        
+                        <tbody>
+                           
+                            <tr *ngFor="let uni of universites" >
+                                <td>
+                                    {{ uni.idUniversite }} 
+                                </td>
+                                <td>
+                                    {{ uni.nomUniversite }}
+                                </td>
+                                <td>
+                                    {{ uni.etatUniversite }}
+                                </td>
+                                <td>
+                                    {{ uni.reputationUniversite }}
+                                </td>
+                                <td class="text-primary">
+                                    {{ uni.surfaceUniversite }}
+                                </td>
+                            </tr>
+                      
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
