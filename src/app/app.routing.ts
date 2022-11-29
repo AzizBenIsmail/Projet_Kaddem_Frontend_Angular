@@ -4,7 +4,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
-import { UniversiteComponent } from "./Admin/UniversiteManegment/universite/universite.component";
 import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
 
 const routes: Routes = [

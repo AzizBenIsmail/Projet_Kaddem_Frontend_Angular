@@ -29,8 +29,6 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
 // import { DetailEquipeAdminManagmentComponent } from "./Admin/EquipesManagment/detail-equipe-admin-managment/detail-equipe-admin-managment.component";
 import { UniversiteserviceService } from "./Services/ServicesUniversite/universiteservice.service";
-import { UniversiteComponent } from "./Admin/UniversiteManegment/universite/universite.component";
-import { UniversiteModule } from "./Admin/UniversiteManegment/universite-Module/universite.module";
 import { AddEquipeComponent } from "./Admin/EquipesManagment/add-equipe/add-equipe.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create-thread.component";
@@ -75,7 +73,6 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     MatTableModule,
     MatInputModule,
     MatCardModule,
-    UniversiteModule,
     ProjetsModule,
     ModalModule
   ],
@@ -89,7 +86,6 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     AddEquipeComponent,
     ConfirmDialogComponent,
     // DetailEquipeAdminManagmentComponent,
-    UniversiteComponent,
     CreateThreadComponent,
     UpdateThreadComponent,
     ListThreadComponent,
