@@ -9,6 +9,10 @@ import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-threa
 
 const routes: Routes = [
   {path: "",redirectTo: "dashboard",pathMatch: "full",},
+  {path: "Details",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
+    import("./Admin/DetailEquipesManagement/detail-equipe-admin/detail-equipe-admin.module")
+        .then((m) => m.DetailEquipeAdminModule),},],
+  },
   {path: "Equipes",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
           import("./Admin/EquipesManagment/equipes-admin/equipes-admin.module").then((m) => m.EquipesAdminModule),},],
   },

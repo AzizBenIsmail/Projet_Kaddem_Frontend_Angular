@@ -28,7 +28,6 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { ConfirmDialogComponent } from "./Admin/EquipesManagment/confirm-dialog/confirm-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
-import { DetailEquipeAdminManagmentComponent } from "./Admin/EquipesManagment/detail-equipe-admin-managment/detail-equipe-admin-managment.component";
 import { UniversiteserviceService } from "./Services/ServicesUniversite/universiteservice.service";
 import { UniversiteComponent } from "./Admin/UniversiteManegment/universite/universite.component";
 import { UniversiteModule } from "./Admin/UniversiteManegment/universite-Module/universite.module";
@@ -44,36 +43,48 @@ import { UpdateProjetComponent } from './Admin/Projets/update-projet/update-proj
 import { GetProjetsComponent } from './Admin/Projets/get-projets/get-projets.component';
 import { DetailsProjetComponent } from './Admin/Projets/details-projet/details-projet.component';
 import { ProjetModuleModule } from './Admin/Projets/projet-module/projet-module.module';
+import { DetailEquipeAdminModule } from './Admin/DetailEquipesManagement/detail-equipe-admin/detail-equipe-admin.module';
+import { DetailEquipeAdminMangmComponent } from './Admin/DetailEquipesManagement/detailEquipeAdmin/detail-equipe-admin-mangm/detail-equipe-admin-mangm.component';
+import { CreateEquipeComponent } from './Admin/EquipesManagment/createEquipe/create-equipe/create-equipe.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DetailEquipeComponent } from './Admin/EquipesManagment/detail-equipe/detail-equipe.component';
+import {ModalModule} from 'ngx-bootstrap/modal';
+import { ContactAdminDevEquipesComponent } from './Admin/EquipesManagment/contact-admin-dev-equipes/contact-admin-dev-equipes.component';
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ComponentsModule,
-    RouterModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatIconModule,
-    MatButtonModule,
-    AdminLayoutModule,
-    MatRippleModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatTooltipModule,
-    MatChipsModule,
-    NgbModule,
-    EquipesAdminModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatTableModule,
-    MatInputModule,
-    UniversiteModule,
-    ProjetModuleModule,
-  ],
+    imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ComponentsModule,
+        RouterModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatIconModule,
+        MatButtonModule,
+        AdminLayoutModule,
+        MatRippleModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatTooltipModule,
+        MatChipsModule,
+        NgbModule,
+        EquipesAdminModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatCheckboxModule,
+        MatDialogModule,
+        MatTableModule,
+        MatInputModule,
+        UniversiteModule,
+        ProjetModuleModule,
+        DetailEquipeAdminModule,
+        MatCardModule,
+        MatProgressSpinnerModule,
+        ModalModule,
+    ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
@@ -84,7 +95,7 @@ import { ProjetModuleModule } from './Admin/Projets/projet-module/projet-module.
     UpdateEquipeComponent,
     AddEquipeComponent,
     ConfirmDialogComponent,
-    DetailEquipeAdminManagmentComponent,
+
     UniversiteComponent,
     AddUniversiteComponent,
     CreateThreadComponent,
@@ -95,6 +106,11 @@ import { ProjetModuleModule } from './Admin/Projets/projet-module/projet-module.
     UpdateProjetComponent,
     GetProjetsComponent,
     DetailsProjetComponent,
+
+    DetailEquipeAdminMangmComponent,
+      CreateEquipeComponent,
+      DetailEquipeComponent,
+      ContactAdminDevEquipesComponent,
   ],
   providers: [EquipeService, ProjetService],
   bootstrap: [AppComponent],

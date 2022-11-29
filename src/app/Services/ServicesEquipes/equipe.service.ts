@@ -1,29 +1,67 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Equipe } from 'app/models/Equipe';
-import { Observable } from 'rxjs';
+import {catchError, delay, Observable, of, retry, throwError} from 'rxjs';
 import { getSystemErrorMap } from 'util';
 import {NgForm} from '@angular/forms';
 import { map } from 'rxjs/operators';
+import * as http from 'http';
+const httpOptions = {
+  headers: new HttpHeaders({
+    "Content-Type": "application/json"
+  })
+};
+const equipesUrls = {
+
+  post: "http://localhost:8083/kaddem/equipe/",
+
+};
 @Injectable({
   providedIn: 'root'
 })
 export class EquipeService {
+
   private equipeAdminUrl: string;
 
+
   constructor(private http: HttpClient) { 
-this.equipeAdminUrl="http://localhost:8083/kaddem/equipe/"
+this.equipeAdminUrl="http://localhost:8083/kaddem/equipe"
 
   }
   public findAllEquipes(): Observable<Equipe> {
   
-    return this.http.get<Equipe>(this.equipeAdminUrl+"All");
+    return this.http.get<Equipe>(this.equipeAdminUrl+"/All");
     
   }
+  private existingnomEquipes = ['Produit300', 'Superman', 'Joker', 'Luthor'];
 
-
-  public save(equipe: Equipe) {
-    return this.http.post<Equipe>(this.equipeAdminUrl+"AddEquipe/", equipe);
+//@RequestParam String salle, @RequestParam String thematique, @RequestParam Integer nombreMaxParticipants, @RequestParam(name = "image",required = false) MultipartFile file
+  public save(body:any) {
+    return this.http.post("http://localhost:8083/kaddem/equipe/AddEquipe2",body);
+  }
+  // return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
+  postEquipe(body: any) :Observable<any>{
+    console.log(body)
+    return this.http
+        .post(equipesUrls.post, body)
+        .pipe(retry(1), catchError(this.handleError));
+  }
+  createEquipeWithFileUpload(formdata: any) {
+    return this.http
+        .post(equipesUrls.post, formdata)
+        .pipe(retry(1), catchError(this.handleError));
+  }
+  handleError(error) {
+    let errorMessage = "";
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
   }
 
 
@@ -33,6 +71,7 @@ this.equipeAdminUrl="http://localhost:8083/kaddem/equipe/"
 
   getEquipe(id: number): Observable<Object> {
     //http://localhost:8083/kaddem/equipe/equipe/1
+    //http://localhost:8083/kaddem/equipe/equipe/168
     return this.http.get(`${this.equipeAdminUrl}/equipe/${id}`);
   }
   deleteEquipe(id:number):Observable<Object>{
@@ -40,12 +79,36 @@ this.equipeAdminUrl="http://localhost:8083/kaddem/equipe/"
     return this.http.delete(`http://localhost:8083/kaddem/equipe/deleteEquipe/${id}`);
   }
 
-  changeValidite(id:number,idD:number):Observable<Object>{
+  changeValidite(id:number):Observable<Object>{
     //   http://localhost:8083/kaddem/equipe/deleteEquipe/13
 
 
-    return this.http.get(`http://localhost:8083/kaddem/equipe/changeV/${id}/${idD}`);
+    return this.http.get(`http://localhost:8083/kaddem/equipe/changeV/${id}`);
   }
 
+
+listesNonactivées(){
+    return this.http.get(`http://localhost:8083/kaddem/equipe/nbEquipesDesactives`)
+}
+equipesActivées(){
+    return this.http.get(`http://localhost:8083/kaddem/equipe/nbEquipesActives`)
+}
+nbMembresParEquipe(id:number):Observable<Object>{
+    return this.http.get(`http://localhost:8083/kaddem/equipe/nbMembresParEquipes/${id}`)
+}
+  nbMembres():Observable<Object>{
+    return this.http.get(`http://localhost:8083/kaddem/equipe/nbMembresEquipes`)
+  }
+  nbEquipes():Observable<Object>{
+    return this.http.get(`http://localhost:8083/kaddem/equipe/nbEquipes`)
+  }
+getEtudiants():Observable<any>{
+    return this.http.get(`http://localhost:8083/kaddem/Etudiant/`)
+}
+  sendMailToAdminDev(formdata: any) {
+    return this.http
+        .post("http://localhost:8083/kaddem/equipe/SendMessageToAdminOfEquipes/", formdata)
+        .pipe(retry(1), catchError(this.handleError));
+  }
 
 }
