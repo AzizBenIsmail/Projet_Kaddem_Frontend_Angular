@@ -1,74 +1,82 @@
 <div class="main-content">
-  <div class="container-fluid">
-<div class="row">
-    <div class="col-md-12">            <button data-inline="true" class="btn btn-danger btn-block" (click)="refresh()" type="button">Refresh page</button>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12"> <button data-inline="true" class="btn btn-danger btn-block" (click)="refresh()"
+                    type="button">Refresh page</button>
 
-        <div class="card" >
+                <div class="card">
 
-            <div class="card-header card-header-danger" >
+                    <div class="card-header card-header-danger">
 
-                <h4 class="card-title ">Universite</h4>
-                <p class="card-category"> Tout les universites</p>
-            </div>
-            <div class="card-body"id="sectionToPrint">
-                <div class="table-responsive">
-                    <table class="table">
-                        
-                        <thead class=" text-primary">
-                            <th>
-                                ID
-                            </th>
-                            <th>
-                                Nom
-                            </th>
-                            <th>
-                                Etat
-                            </th>
-                            <th>
-                                Surface
-                            </th>
-                            <th>
-                                Reputation
-                            </th>
-                        </thead>
-                        
-                        <tbody>
-                           
-                            <tr *ngFor="let uni of universites" >
-                                <td>
-                                    {{ uni.idUniversite }} 
-                                </td>
-                                <td>
-                                    {{ uni.nomUniversite }}
-                                </td>
-                                <td>
-                                    {{ uni.etatUniversite }}
-                                </td>
-                                <td>
-                                    {{ uni.reputationUniversite }}
-                                </td>
-                                <td class="text-primary">
-                                    {{ uni.surfaceUniversite }}
-                                </td>
-                                <td class="text-primary">
+                        <h4 class="card-title ">Universite</h4>
+                        <p class="card-category"> Tout les universites</p>
+                    </div>
+                    <div class="card-body" id="sectionToPrint">
+                        <div class="table-responsive">
+                            <table class="table">
 
-                                </td>
-                            </tr>
-                      
+                                <thead class=" text-primary">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Nom
+                                    </th>
+                                    <th>
+                                        Etat
+                                    </th>
+                                    <th>
+                                        Surface
+                                    </th>
+                                    <th>
+                                        Reputation
+                                    </th>
+                                    <th>
+                                        Supprimer
+                                    </th>
+                                </thead>
 
-                        </tbody>
-                    </table>
+                                <tbody>
+
+                                    <tr *ngFor="let uni of universites">
+                                        <td>
+                                                 {{ uni.idUniversite }}
+                                        </td>
+                                        <td>
+                                            {{ uni.nomUniversite }}
+                                        </td>
+                                        <td>
+                                            {{ uni.etatUniversite }}
+                                        </td>
+                                        <td>
+                                            {{ uni.reputationUniversite }}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{ uni.surfaceUniversite }}
+                                        </td>
+                                        <td class="text-primary">
+                                            <button mat-button class="js-programmatic-set-val btn btn-outline-primary mr-1 mb-1s"
+                                                (click)="Supprimer( uni.idUniversite )">
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
 
 
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" class="js-programmatic-set-val btn btn-outline-primary mr-1 mb-1s"
+                            (click)="onPrint('sectionToPrint')" value="print a div!" />
+                    </form>
                 </div>
-            </div>
-            <form>
-                <input type="button" class="js-programmatic-set-val btn btn-outline-primary mr-1 mb-1s" (click)="onPrint('sectionToPrint')" value="print a div!" />
-            </form>
-        </div>   
-        <!--Start of Tawk.to Script-->
+                <!--Start of Tawk.to Script-->
 
-    <!--End of Tawk.to Script-->       
+                <!--End of Tawk.to Script-->
+            </div>
+        </div>
     </div>
-</div>
-</div>

@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { left } from '@popperjs/core';
 import { Universite } from 'app/models/Universite';
 import { UniversiteserviceService } from 'app/Services/ServicesUniversite/universiteservice.service';
@@ -13,6 +14,8 @@ declare var $: any;
 })
 export class AllUniversiteComponent implements OnInit {
 universites:any;
+dataSource = new MatTableDataSource<Universite>();
+
   constructor(private universiteService:UniversiteserviceService,@Inject(DOCUMENT) private doc: Document) { }
 
   ngOnInit(): void {
@@ -36,6 +39,17 @@ this.universites=d;
   refresh():void {
     this.doc.defaultView.location.reload();
     this.showNotification("top","left");
+}
+
+Supprimer(id:number) {
+  console.log("hii1")
+  this.universiteService.deleteUniversite(id).subscribe(() => {
+    console.log(id)
+    this.dataSource.data = this.dataSource.data.filter(
+        (universites: Universite) => universites.idUniversite !== id
+    );
+  });
+  this.refresh();
 }
 
 showNotification(from, align){
