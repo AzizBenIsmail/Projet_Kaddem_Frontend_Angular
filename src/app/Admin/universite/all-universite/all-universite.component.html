@@ -2,12 +2,15 @@
   <div class="container-fluid">
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
-            <div class="card-header card-header-danger">
+        <div class="card" >
+            <button data-inline="true" class="btn btn-danger btn-block" (click)="refresh()" type="button">Refresh page</button>
+
+            <div class="card-header card-header-danger" >
+
                 <h4 class="card-title ">Universite</h4>
                 <p class="card-category"> Tout les universites</p>
             </div>
-            <div class="card-body">
+            <div class="card-body"id="sectionToPrint">
                 <div class="table-responsive">
                     <table class="table">
                         
@@ -52,9 +55,14 @@
 
                         </tbody>
                     </table>
+
+
                 </div>
             </div>
-        </div>
+            <form>
+                <input type="button" class="js-programmatic-set-val btn btn-outline-primary mr-1 mb-1s" (click)="onPrint('sectionToPrint')" value="print a div!" />
+            </form>
+        </div>                   
     </div>
 </div>
 </div>
