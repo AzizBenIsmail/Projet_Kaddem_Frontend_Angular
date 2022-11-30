@@ -9,10 +9,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AddUniversiteComponent } from './add-universite/add-universite.component';
 
 @NgModule({
   declarations: [
-    AllUniversiteComponent
+    AllUniversiteComponent,
+    AddUniversiteComponent
   ],
   imports: [
     CommonModule,
