@@ -76,7 +76,8 @@ import { DepartementModule } from './Admin/departement/departement.module';
     MatCardModule,
     ProjetsModule,
     ModalModule,
-    DepartementModule
+    DepartementModule,
+    MatTooltipModule
   ],
   declarations: [
     AppComponent,

@@ -16,7 +16,7 @@ export class AllUniversiteComponent implements OnInit {
 universites:any;
 dataSource = new MatTableDataSource<Universite>();
 
-  constructor(private universiteService:UniversiteserviceService,@Inject(DOCUMENT) private doc: Document) { }
+  constructor(private universiteService:UniversiteserviceService,@Inject(DOCUMENT) private doc: Document  ) { }
 
   ngOnInit(): void {
     this.universiteService.findAllUniversite().subscribe(
