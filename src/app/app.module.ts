@@ -43,6 +43,7 @@ import {CreateEquipeComponent} from './Admin/EquipesManagment/createEquipe/creat
 import { NotFoundComponent } from './error/not-found/not-found.component';
 import {MatCardModule} from '@angular/material/card';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -77,7 +78,8 @@ import {ModalModule} from 'ngx-bootstrap/modal';
     MatCardModule,
     UniversiteModule,
     ProjetsModule,
-    ModalModule
+    ModalModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     AppComponent,

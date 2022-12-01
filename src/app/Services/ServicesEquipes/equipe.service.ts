@@ -110,5 +110,11 @@ getEtudiants():Observable<any>{
         .post("http://localhost:8083/kaddem/equipe/SendMessageToAdminOfEquipes/", formdata)
         .pipe(retry(1), catchError(this.handleError));
   }
+  addPushSubscriber(sub:any) {
+    return this.http.post('/api/notifications', sub);
+  }
 
+  send() {
+    return this.http.post('/api/newsletter', null);
+  }
 }
