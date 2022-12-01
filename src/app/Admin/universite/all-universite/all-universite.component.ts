@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { left } from '@popperjs/core';
 import { Universite } from 'app/models/Universite';
 import { UniversiteserviceService } from 'app/Services/ServicesUniversite/universiteservice.service';
+// import {Swal} from 'sweetalert2/dist/sweetalert2.js';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 declare var $: any;
 
 
@@ -25,6 +27,7 @@ dataSource = new MatTableDataSource<Universite>();
 this.universites=d;
       }
     )
+
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -34,6 +37,14 @@ this.universites=d;
     s1.setAttribute('crossorigin','*');
     s0.parentNode.insertBefore(s1,s0);
     })();
+  
+//     // call message method and pass it the parameters on page load
+//   this.showSuccessMessage(
+//     'SweetAlert Success',
+//     'Testing My First SweetAlert',
+//     'success',
+//     true,
+// )
   }
 
   refresh():void {
@@ -44,10 +55,12 @@ this.universites=d;
 Supprimer(id:number) {
   console.log("hii1")
   this.universiteService.deleteUniversite(id).subscribe(() => {
+
     console.log(id)
     this.dataSource.data = this.dataSource.data.filter(
         (universites: Universite) => universites.idUniversite !== id
     );
+   //   this.confirmBox();
   });
   this.refresh();
 }
@@ -87,4 +100,50 @@ onPrint(divName) {
   window.print();
   document.body.innerHTML = originalContents;
 }
+
+showSuccessMessage(
+  title, message, icon = null,
+  showCancelButton = true){
+  return Swal.fire({
+    title: title,
+    text: message,
+    icon: icon,
+    showCancelButton: showCancelButton
+  })
+}
+
+    simpleAlert(){
+        Swal.fire('Hello world!');
+    }
+
+    alertWithSuccess(){
+        Swal.fire('Thank you...', 'You submitted succesfully!', 'success')
+    }
+
+    confirmBox(idUniversite : any){
+        Swal.fire({
+            title: 'Are you sure want to remove?',
+            text: 'You will not be able to recover this file!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, keep it'
+        }).then((result) => {
+            if (result.value) {
+                this.Supprimer( idUniversite);
+                Swal.fire(
+                    'Deleted!',
+                    'Your imaginary file has been deleted.',
+                    'success'
+                )
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
+            }
+        })
+    }
+
 }
