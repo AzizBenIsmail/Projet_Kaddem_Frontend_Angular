@@ -1,6 +1,5 @@
 <div class="main-content">
     <div class="container-fluid">
-        <button (click)="simpleAlert()">Simple Alert</button>
         <button (click)="alertWithSuccess()">Alert with Success</button>
 
         <div class="row">
@@ -44,9 +43,13 @@
                                 </th>
                                 <th>
                                     Reputation
+                                </th><th>
+                                    date_creation
+                                </th><th>
+                                    date_update
                                 </th>
                                 <th>
-                                    Supprimer
+                                    Action
                                 </th>
                                 </thead>
 
@@ -68,9 +71,19 @@
                                     <td class="text-primary">
                                         {{ uni.surfaceUniversite }}
                                     </td>
-                                    <button (click)="confirmBox(uni.idUniversite)"
-                                            class="js-programmatic-set-val btn btn-outline-primary mr-1 mb-1s"
-                                    >Supprimer {{uni.nomUniversite}}
+                                    <td class="text-primary">
+                                        {{ uni.date_creation }}
+                                    </td>
+                                    <td class="text-primary">
+                                        {{ uni.date_update }}
+                                    </td>
+                                    <button (click)="confirmBox(uni.idUniversite,uni.nomUniversite)"
+                                            class="btn btn-info"
+                                    >Modifier
+                                    </button>
+                                    <button (click)="confirmBox(uni.idUniversite,uni.nomUniversite)"
+                                            class="btn btn-danger"
+                                    >Supprimer
                                     </button>
                                     <td>
 

@@ -6,4 +6,6 @@ export class Universite {
   etatUniversite: String;
   surfaceUniversite: number;
   reputationUniversite: String;
+  date_creation:Date;
+  date_update:Date;
 };
