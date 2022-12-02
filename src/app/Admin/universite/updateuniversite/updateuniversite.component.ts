@@ -12,8 +12,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class UpdateuniversiteComponent implements OnInit {
 
     universites: Universite[] = [];
-    uni: Object = new Universite();
-    universite: Universite = new Universite();
+    universite: Universite=new Universite();
+    uni: any;
 
     constructor(private universiteservice: UniversiteserviceService,private _routerUp: Router ,  private _activatedRoute: ActivatedRoute) {
     }
@@ -26,14 +26,14 @@ export class UpdateuniversiteComponent implements OnInit {
         if (isIdPresent) {
             const id = +this._activatedRoute.snapshot.paramMap.get('id');
             this.universiteservice.getUniversite(id).subscribe(
-                data => this.universite = <Universite>data
+                data => this.uni = data
             )
         }
 
     }
     enregistrerUniversite(f: NgForm) {
-
-        this.universiteservice.save(this.universite).subscribe(
+        const id = +this._activatedRoute.snapshot.paramMap.get('id');
+        this.universiteservice.updateUniversite(id,this.universite).subscribe(
             data => {
                 console.log('response', data);
                 this._routerUp.navigateByUrl('Universite');
