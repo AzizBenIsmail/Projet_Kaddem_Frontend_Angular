@@ -57,26 +57,26 @@
                                 <tbody>
 
                                 <tr *ngFor="let uni of universites" [ngStyle]="{'background-color':uni.etatUniversite === 'Fible' ? 'red' : 'green' }">
-                                    <td >
+                                    <td class="font-weight-bold" >
                                         {{ uni.idUniversite }}
                                     </td>
-                                    <td>
+                                    <td class="font-weight-bold">
                                         {{ uni.nomUniversite }}
                                     </td>
-                                    <td >
+                                    <td class="font-weight-bold">
                                         {{ uni.etatUniversite }}
                                     </td>
-                                    <td>
+                                    <td class="font-weight-bold">
                                         {{ uni.reputationUniversite }}
                                     </td>
-                                    <td class="text-primary" >
+                                    <td class="font-weight-bold" >
                                         {{ uni.surfaceUniversite }}
 
                                     </td>
-                                    <td class="text-primary">
+                                    <td class="font-weight-bold" >
                                         {{ uni.date_creation }}
                                     </td>
-                                    <td class="text-primary">
+                                    <td class="font-weight-bold">
                                         {{ uni.date_update }}
                                     </td>
 
