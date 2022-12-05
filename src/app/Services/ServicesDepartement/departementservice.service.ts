@@ -31,7 +31,7 @@ export class DepartementserviceService {
     return this.http.get(`${this.DepartementeAdminUrl}findDepartmentById/${id}`);
   }
   deleteDepartement(id:number):Observable<Object>{
-    return this.http.delete(`http://localhost:8083/kaddem/Departement/deleteDepartmentbyId/${id}`);
+    return this.http.delete(`http://localhost:8083/kaddem/Departement/deleteDepartmentbyId?id=${id}`);
   }
 
 }

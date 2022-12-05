@@ -1,7 +1,5 @@
 <div class="main-content">
     <div class="container-fluid">
-        <button (click)="alertWithSuccess()">Alert with Success</button>
-
         <div class="row">
             <div class="col-md-12">
                 <button data-inline="true" matTooltip="Edit Task"
@@ -80,17 +78,17 @@
                                         {{ uni.date_update }}
                                     </td>
 
-                                    <button [routerLink]="['update/'+uni.idUniversite]" type="button" matTooltip="Edit Task"
-                                            [matTooltipPosition]="'above'"
-                                            class="btn btn-info"
-                                    >Modifier
-                                    </button>
-                                    <button (click)="confirmBox(uni.idUniversite,uni.nomUniversite)"
-                                            class="btn btn-danger"
-                                    >Supprimer
-                                    </button>
                                     <td>
 
+                                        <button [routerLink]="['update/'+uni.idUniversite]" type="button" matTooltip="Edit Task"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-info"
+                                        >Modifier
+                                        </button>
+                                        <button (click)="confirmBox(uni.idUniversite,uni.nomUniversite)"
+                                                class="btn btn-danger"
+                                        >Supprimer
+                                        </button>
                                     </td>
                                 </tr>
 

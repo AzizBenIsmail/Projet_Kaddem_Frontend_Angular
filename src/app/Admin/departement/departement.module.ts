@@ -5,6 +5,8 @@ import { DepartementRoutingModule } from './departement-routing.module';
 import { AlldepartementComponent } from './alldepartement/alldepartement.component';
 import { AddDepartementComponent } from './add-departement/add-departement.component';
 import { UpdatedepartementComponent } from './updatedepartement/updatedepartement.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -13,9 +15,11 @@ import { UpdatedepartementComponent } from './updatedepartement/updatedepartemen
     AddDepartementComponent,
     UpdatedepartementComponent
   ],
-  imports: [
-    CommonModule,
-    DepartementRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        DepartementRoutingModule,
+        ReactiveFormsModule,
+        MatFormFieldModule
+    ]
 })
 export class DepartementModule { }
