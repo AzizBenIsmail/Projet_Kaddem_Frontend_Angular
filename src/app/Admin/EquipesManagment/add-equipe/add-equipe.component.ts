@@ -34,8 +34,17 @@ equipe:Equipe;
   destdata:any;
 
   equipeForm = new FormGroup({
-
+/**
+ public void AddEquipe(@RequestParam String nomEquipe,
+ @RequestParam Niveau niveau,
+ @RequestParam String salle,
+ @RequestParam String thematique,
+ @RequestParam Integer nombreMaxParticipants,
+ @RequestParam(name = "image",required = false) MultipartFile file) throws IOException {
+ */
     nomEquipe: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5)])),
+
+
 
 
 

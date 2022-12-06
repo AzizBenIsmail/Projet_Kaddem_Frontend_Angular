@@ -1,3 +1,4 @@
+import {DetailEquipe} from './DetailEquipe';
 
 
 export class Equipe{
@@ -8,6 +9,11 @@ export class Equipe{
     isValid:Boolean;
     isSelected: boolean;
     isEdit: boolean;
+    image:String;
+    nombreMaxParticipants:number;
+    detailEquipe:DetailEquipe;
+
+
 
 
 
@@ -26,14 +32,40 @@ export const EquipeColumns = [
         required: true,
     }
     ,
+    {
+        key: 'niveau',
+        type: 'text',
+        label: 'Niveau',
+        required: true,
+        values:['Mouna','Rouma']
+
+    }
+    ,
+    {
+        key: 'nombreParticipants',
+        type: 'number',
+        label: 'Nombre Max des Participants',
+        required: true
+
+    },
+    {
+        key: 'NomResponsable',
+        type: 'text',
+        label: 'Nom Responsable',
+        required: true
+
+    },
+
 
 
 
     {
         key: 'isEdit',
         type: 'isEdit',
-        label: '',
+        label: 'Actions',
     }
+
+
 ];
 
 

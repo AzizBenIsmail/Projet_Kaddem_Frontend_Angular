@@ -1,83 +1,118 @@
 <div class="main-content">
-  <div class="container-fluid">
-    <p>all-universite works!</p>
-   <!-- <table border="4">
-      <thead>
-        <tr>
-          <th colspan="2"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <div *ngFor="let uni of universites">
-            <tr>    
-        <td>    {{ uni.idUniversite }} </td> 
-        <td>    {{ uni.nomUniversite }} </td> 
-        <td>    {{ uni.etatUniversite }} </td> 
-        <td>    {{ uni.surfaceUniversite }} </td> 
-        <td>    {{ uni.reputationUniversite }} </td> 
-        </tr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button data-inline="true" matTooltip="Edit Task"
+                        [matTooltipPosition]="'above'" class="glyphicon glyphicon-plus" (click)="refresh()"
+                        type="button">
+                    <i class="material-icons">refresh</i>
+                </button>
 
-          </div>
-        
-    
-      </tbody>
-    </table> -->
+                <div class="card">
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header card-header-danger">
-                <h4 class="card-title ">Universite</h4>
-                <p class="card-category"> Tout les universites</p>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table">
-                        
-                        <thead class=" text-primary">
-                            <th>
-                                ID
-                            </th>
-                            <th>
-                                Nom
-                            </th>
-                            <th>
-                                Etat
-                            </th>
-                            <th>
-                                Surface
-                            </th>
-                            <th>
-                                Reputation
-                            </th>
-                        </thead>
-                        
-                        <tbody>
-                           
-                            <tr *ngFor="let uni of universites" >
-                                <td>
-                                    {{ uni.idUniversite }} 
-                                </td>
-                                <td>
-                                    {{ uni.nomUniversite }}
-                                </td>
-                                <td>
-                                    {{ uni.etatUniversite }}
-                                </td>
-                                <td>
-                                    {{ uni.reputationUniversite }}
-                                </td>
-                                <td class="text-primary">
-                                    {{ uni.surfaceUniversite }}
-                                </td>
-                            </tr>
-                      
+                    <div class="card-header card-header-danger">
 
-                        </tbody>
-                    </table>
+                        <h4 class="card-title ">Universite
+
+                            <button mat-raised-button [routerLink]="['add']" type="button" matTooltip="Edit Task"
+                                    [matTooltipPosition]="'above'" class="glyphicon glyphicon-plus">
+                                <i class="material-icons">add</i>
+                            </button>
+
+                        </h4>
+                        <p class="card-category"> Tout les universites</p>
+                    </div>
+                    <div class="card-body" id="sectionToPrint">
+                        <div class="table-responsive">
+                            <table class="table">
+
+                                <thead class=" text-primary">
+                                <th>
+                                    ID
+                                </th>
+                                <th>
+                                    Nom
+                                </th>
+                                <th>
+                                    Etat
+                                </th>
+                                <th>
+                                    Reputation
+                                </th>
+                                <th>
+                                    Surface
+
+                                </th><th>
+                                    date_creation
+                                </th><th>
+                                    date_update
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                                </thead>
+
+                                <tbody>
+
+                                <tr *ngFor="let uni of universites" [ngStyle]="{'background-color':uni.etatUniversite === 'Fible' ? 'red' : 'green' }">
+                                    <td class="font-weight-bold" >
+                                        {{ uni.idUniversite }}
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.nomUniversite }}
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.etatUniversite }}
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.reputationUniversite }}
+                                    </td>
+                                    <td class="font-weight-bold" >
+                                        {{ uni.surfaceUniversite }}
+
+                                    </td>
+                                    <td class="font-weight-bold" >
+                                        {{ uni.date_creation }}
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.date_update }}
+                                    </td>
+
+                                    <td>
+
+                                        <button [routerLink]="['update/'+uni.idUniversite]" type="button" matTooltip="Edit Task"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-info"
+                                        >Modifier
+                                        </button>
+                                        <button (click)="confirmBox(uni.idUniversite,uni.nomUniversite)"
+                                                class="btn btn-danger"
+                                        >Supprimer
+                                        </button>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" class="js-programmatic-set-val btn btn-outline-primary mr-1 mb-1s"
+                               (click)="onPrint('sectionToPrint')" value="print a div!"/>
+                    </form>
                 </div>
+                <!--Start of Tawk.to Script-->
+
+                <!--End of Tawk.to Script-->
             </div>
         </div>
     </div>
-</div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    //use this to initialize the plugin
+    <script src="sweetalert2.min.js"></script>
 </div>

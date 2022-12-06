@@ -20,7 +20,7 @@ export class UniversiteserviceService {
   }
 
   public save( universite: Universite) {
-    return this.http.post<Universite>(this.UniversiteAdminUrl+"addUniversite/", Universite);
+    return this.http.post<Universite>(this.UniversiteAdminUrl+"addUniversite/", universite);
   }
 
   updateUniversite(id: number, value: any): Observable<Object> {
@@ -28,19 +28,11 @@ export class UniversiteserviceService {
   }
 
   getUniversite(id: number): Observable<Object> {
-    //http://localhost:8083/kaddem/equipe/equipe/1
     return this.http.get(`${this.UniversiteAdminUrl}updateUniversite/${id}`);
   }
   deleteUniversite(id:number):Observable<Object>{
- //   http://localhost:8083/kaddem/equipe/deleteEquipe/13
     return this.http.delete(`http://localhost:8083/kaddem/Universite/deleteUniversite/${id}`);
   }
 
-  changeValidite(id:number,idD:number):Observable<Object>{
-    //   http://localhost:8083/kaddem/Universite/deleteEquipe/13
-
-
-    return this.http.get(`http://localhost:8083/kaddem/Universite/deleteUniversite/${id}/${idD}`);
-  }
 
 }

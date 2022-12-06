@@ -1,0 +1,53 @@
+<div>
+    <mat-card
+            style="max-width: 500px;margin:auto"
+            [class.mat-elevation-z8]="true"
+    >
+        <form
+                style="display: flex;flex-direction: column;"
+                [formGroup]="sendMailForm"
+                (ngSubmit)="onSubmit()"
+        >
+            <mat-form-field>
+                <input matInput placeholder="Title" name="nomEquipe" formControlName="title" />
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="salle" name="body" formControlName="body" />
+            </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <button
+                    class="spacing-top"
+                    mat-raised-button
+                    color="primary"
+                    type="submit"
+                    [disabled]="isLoading"
+            >
+                submit
+            </button>
+            <p *ngIf="failed" class="warn-color mat-small spacing-top">failed!</p>
+            <div
+                    *ngIf="isLoading"
+                    class="spacing-top spacing-left"
+                    style="display: flex;justify-content: center;"
+            >
+                <mat-spinner diameter="25"></mat-spinner>
+            </div>
+        </form>
+    </mat-card>
+</div>

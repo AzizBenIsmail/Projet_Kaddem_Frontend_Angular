@@ -3,6 +3,7 @@ import { Equipe } from 'app/models/Equipe';
 import { EquipeService } from 'app/Services/ServicesEquipes/equipe.service';
 import {faFilm} from '@fortawesome/free-solid-svg-icons';
 import {FormControl, FormGroup} from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-equipes',
@@ -12,13 +13,39 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class EquipesComponent implements OnInit {
 equipes:any;
   equipe : Equipe=new Equipe();
-  constructor(private equipeService:EquipeService) { }
+  equipe2:any;
+  constructor(private equipeService:EquipeService,    private route: ActivatedRoute,
+  ) { }
   isupdated = false;
+    failed = false;
+    isLoading = true;
   ngOnInit(): void {
+
+    this.equipeService
+        .getEquipe(this.route.snapshot.params.id)
+        .subscribe(
+            equipe => {
+              this.equipe2 = equipe;
+
+              this.equipe2.image = `http://localhost:8083/kaddem/images/${this
+                  .equipe2 && this.equipe2.image}`;
+
+              this.failed = false;
+              this.isLoading = false;
+            },
+            err => {
+              this.failed = true;
+              this.isLoading = false;
+            }
+        );
+
     this.equipeService.findAllEquipes().subscribe(data => {
       this.equipes = data;
     });
   }
+    onError() {
+        this.equipe2.image = "/assets/img/equipe.jpg";
+    }
 
   updateEquipe(id: number){
     this.equipeService.getEquipe(id)
