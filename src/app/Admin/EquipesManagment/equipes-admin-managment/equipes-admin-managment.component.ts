@@ -16,6 +16,8 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import {DOCUMENT} from '@angular/common';
 import DataTables from 'datatables.net';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import {PageEvent} from '@angular/material/paginator';
 @Component({
   selector: 'app-equipes-admin-managment',
   templateUrl: './equipes-admin-managment.component.html',
@@ -62,6 +64,7 @@ text:String="";
   }
 
   ngOnInit() {
+      this.getEquipes2({ page: "0", size: "5" });
       this.equipeService.nbEquipes().subscribe( (res:any)=>{
           this.nbEquipes=res;
       } )
@@ -132,8 +135,15 @@ this.equipeService.listesNonactivées().subscribe( (res:any)=>{
     }
     else
     {
-
+        if(confirm("Etes vous sure de modifier cette equipe ?")) {
       this.equipeService.updateEquipe(row.idEquipe,row).subscribe(() => (row.isEdit = false));
+            Swal.fire({
+                title: 'Mise a jour  Equipe!!',
+                text:   "Equipe Bien modifiée",
+                icon: 'success'
+            });
+            this.loaddata();
+        }
     }}
 
 
@@ -170,46 +180,81 @@ detailEquipe:new DetailEquipe(),
 
     };
     this.dataSource.data = [newRow, ...this.dataSource.data];
-  }
 
+  }
+    data2 = [];
+    loaddata()
+    {
+
+        this.equipeService.findAllEquipes().subscribe((res: any)=>{
+
+            this.data2 = res;
+        });
+    }
   removeRow(id:number) {
     console.log("hii1")
+      if(confirm("Etes vous sure de supprimr cette equipe ?")) {
     this.equipeService.deleteEquipe(id).subscribe(() => {
       console.log(id)
-      this.dataSource.data = this.dataSource.data.filter(
+
+        this.dataSource.data = this.dataSource.data.filter(
           (e: Equipe) => e.idEquipe !== id
       );
+
     });
+          Swal.fire({
+              title: 'Suppression Equipe!!',
+              text:   "Equipe Bien supprimée",
+              icon: 'success'
+          });
+          this.loaddata();
+      }
   }
   ChangeValiditeRow(id:number) {
     console.log("hii1")
+if(confirm("etes vous sure de changer la validité de cette equipe ?")){
 
     this.equipeService.changeValidite(id).subscribe(() => {
+
       console.log(id)
 
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Equipe bien in(validée)',
+                showConfirmButton: false,
+                timer: 1500
+            })
 
 
-    });
-let lista :any ;
-   this.equipeService.findAllEquipes().subscribe((res: any) => {
-      this.dataSource.data = res;
-lista=res;
-for(let i =0;i<lista.length;i++){
-  console.log(lista[i].idEquipe)
-  if(lista[i].idEquipe==id){
-  if(lista[i].isValid==0){
-    this.text="non valideeeee"
-  }if(lista[i].isValid==1){
-    this.text="valideeee"
-  }}
-}
+    }
+
+    );
+
+// let lista :any ;
+//    this.equipeService.findAllEquipes().subscribe((res: any) => {
+//       this.dataSource.data = res;
 
 
-    });
+// lista=res;
+// for(let i =0;i<lista.length;i++){
+//   console.log(lista[i].idEquipe)
+//   if(lista[i].idEquipe==id){
+//   if(lista[i].isValid==0){
+//     this.text="non valideeeee"
+//   }if(lista[i].isValid==1){
+//     this.text="valideeee"
+//   }}
+// }
+
+
+    // });
 
 
 
   }
+      this.refresh()
+    }
 
 
 
@@ -243,12 +288,36 @@ for(let i =0;i<lista.length;i++){
 
 
   display = false;
+    display2 = false;
+    display3 = false;
+  displayMembres=false;
   onPress() {
     //this.display = true;
 
     //To toggle the component
     this.display = !this.display;
   }
+
+
+
+    onPress2() {
+        //this.display = true;
+
+        //To toggle the component
+        this.display2 = !this.display2;
+    }
+    onPress3() {
+        //this.display = true;
+
+        //To toggle the component
+        this.display3 = !this.display3;
+    }
+    onPressMembres() {
+        //this.display = true;
+
+        //To toggle the component
+        this.displayMembres = !this.displayMembres;
+    }
 
 
 
@@ -290,6 +359,7 @@ for(let i =0;i<lista.length;i++){
   dateCreation:Date;
   salle:String;
   thematique:String;
+  nomResponsable:String;
   dateActivation:Date;
   nombreParticipants: number;
   showModal(id: number) {
@@ -304,6 +374,8 @@ for(let i =0;i<lista.length;i++){
       this.image=`http://localhost:8083/kaddem/images/${this.e.image }`
      console.log("***********"+this.e.detailEquipe.idDetailEquipe);
       this.salle=this.e.detailEquipe.salle;
+      this.nomResponsable=this.e.etudiant.nom
+      this.thematique=this.e.detailEquipe.thematique
       this.dateActivation=this.e.detailEquipe.dateActivation;
       this.nombreParticipants=this.e.detailEquipe.nombreParticipants;
       this.dateCreation=this.e.detailEquipe.dateCreation;
@@ -356,5 +428,64 @@ for(let i =0;i<lista.length;i++){
 
     applyFilter(filterValue: string) {
         this.dataSource.filter=filterValue.trim().toLowerCase();
+    }
+    simpleAlert(){
+        Swal.fire('Hello world!');
+    }
+
+    alertWithSuccess(){
+        Swal.fire('Thank you...', 'You submitted succesfully!', 'success')
+    }
+
+    confirmBoxRemove(){
+        Swal.fire({
+            title: 'étes-vous sur de supprimer cette equipe?',
+            text: 'cette equipe sera supprimer definitivement!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'oui!',
+            cancelButtonText: 'Non'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'supprimée!',
+                    "L'equipe est supprimée definitivement" ,
+                    'success'
+                )
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Annulée',
+                    "l'equipe  n'est pas supprimée",
+                    'error'
+                )
+            }
+        })
+    }
+    equipes2: any[] = [];
+    totalElements: number = 0;
+    private getEquipes2(request) {
+        this.equipeService.getAll(request)
+            .subscribe(data => {
+                    this.dataSource.data = data['content'];
+                    this.totalElements = data['totalElements'];
+                }
+                , error => {
+                    console.log(error.error.message);
+                }
+            );
+    }
+
+    nextPage(event: PageEvent) {
+        const request = {};
+        request['page'] = event.pageIndex.toString();
+        request['size'] = event.pageSize.toString();
+        this.getEquipes2(request);
+    }
+    dowloadExcel(){
+        return this.equipeService.donloadExcel().subscribe(
+            ()=>{
+
+            }
+        )
     }
 }

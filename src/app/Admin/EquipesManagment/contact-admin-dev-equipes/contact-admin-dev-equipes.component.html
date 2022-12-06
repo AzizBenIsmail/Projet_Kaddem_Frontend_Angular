@@ -10,25 +10,25 @@
         >
             <mat-form-field>
                 <input matInput placeholder="Title" name="nomEquipe" formControlName="title" />
+                <mat-error
+                        *ngIf="sendMailForm.get('title').hasError"
+                >
+                    <small> il faut taper au moins <b>3</b> caracteres</small>
+                </mat-error>
             </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="salle" name="body" formControlName="body" />
-            </mat-form-field>
 
 
+<!--            <mat-form-field>-->
+<!--                <input matInput placeholder="salle" name="body" formControlName="body" />-->
 
+                <ckeditor [editor]="editor" [config]="ckconfig" formControlName="body" placeholder="mmm"></ckeditor>
+            <mat-error
+                    *ngIf="sendMailForm.get('body').hasError"
+            >
+                <small> il faut taper au moins <b>10</b> caracteres</small>
+            </mat-error>
 
-
-
-
-
-
-
-
-
-
-
-
+<!--            </mat-form-field>-->
 
 
             <button
@@ -47,7 +47,22 @@
                     style="display: flex;justify-content: center;"
             >
                 <mat-spinner diameter="25"></mat-spinner>
+
             </div>
         </form>
     </mat-card>
 </div>
+
+
+
+
+<!--<form  #f="ngForm">-->
+<!--    title <input type="text" name="title" ngModel required #title="ngModel">-->
+<!--    <app-errors [errors]="title"></app-errors>-->
+
+<!--    body <input type="text" name="body" ngModel  #body="ngModel">-->
+
+<!--    <app-errors [errors]="body"></app-errors>-->
+<!--    <input type="submit" value="Envoyer"  [disabled]="f.invalid" (click)="sendP(f.value)">-->
+<!--</form>-->
+
