@@ -22,7 +22,7 @@ export const ROUTES: RouteInfo[] = [
     icon: "content_paste",
     class: "",
   },
-  { path: "/Forum", title: "Forum", icon: "groups", class: "" },
+  { path: "/Forum/all", title: "Forum", icon: "groups", class: "" },
 ];
 
 @Component({

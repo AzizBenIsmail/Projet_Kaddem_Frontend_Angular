@@ -1,3 +1,4 @@
+import { Etudiant } from './Etudiant';
 import { Reponse } from "./Reponse";
 export class Thread {
   id: number;
@@ -6,7 +7,7 @@ export class Thread {
   postDate: Date = new Date();
   display: boolean;
   object: String;
-  etudiant: number;
+  etudiant: Etudiant;
   verified: boolean = false;
   updatedAt: Date = new Date();
 }

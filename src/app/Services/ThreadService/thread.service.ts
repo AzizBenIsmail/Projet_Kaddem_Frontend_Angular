@@ -17,19 +17,20 @@ const httpOptions = {
 })
 export class ThreadService {
   constructor(private http: HttpClient) {}
-  create(thread: Thread): Observable<any> {
+  create(thread: Thread): Observable<Thread> {
     return this.http.post<Thread>(URL + "/AddThread", thread);
   }
-  update(thread: Thread): Observable<any> {
+
+  update(thread: Thread): Observable<Thread> {
     return this.http.post<Thread>(URL + "/updateThread", thread);
   }
-  findAll(): Observable<any> {
-    return this.http.get<Thread>(URL + "/");
+  findAll(): Observable<Thread[]> {
+    return this.http.get<Thread[]>(URL + "/");
   }
-  getById(id: number): Observable<any> {
+  getById(id: number): Observable<Thread> {
     return this.http.get<Thread>(URL + "/" + id);
   }
-  delete(thread: Thread): Observable<any> {
+  delete(thread: Thread): Observable<Thread> {
     return this.http.get<Thread>(URL + "/deleteThread/" + thread.id);
   }
 }

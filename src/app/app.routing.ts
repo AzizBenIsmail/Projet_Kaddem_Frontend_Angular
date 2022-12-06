@@ -6,6 +6,9 @@ import { Routes, RouterModule } from "@angular/router";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { UniversiteComponent } from "./Admin/UniversiteManegment/universite/universite.component";
 import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
+import { ListReponseComponent } from "./Admin/Forum/Reponse/list-reponse/list-reponse.component";
+import { ForumComponent } from "./Admin/Forum/forum/forum.component";
+import { DetailsThreadComponent } from "./Admin/Forum/Thread/details-thread/details-thread.component";
 
 const routes: Routes = [
   {path: "",redirectTo: "dashboard",pathMatch: "full",},
@@ -29,11 +32,13 @@ const routes: Routes = [
           import("./layouts/admin-layout/admin-layout.module").then((m) => m.AdminLayoutModule),},],
   },
 
-  {path: "Forum",component: AdminLayoutComponent,children: [{path: "",component: ListThreadComponent,},],
+  {path: "Forum",component: AdminLayoutComponent,children: [{path: "all",component: ForumComponent,},
+    {path: "all/thread",component: ListThreadComponent,},
+  {path: "all/reponse",component: DetailsThreadComponent,}],
   },
   
 ];
-
+ 
 @NgModule({
   imports: [
     CommonModule,

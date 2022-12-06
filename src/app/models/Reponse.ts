@@ -1,10 +1,12 @@
+import { Etudiant } from 'app/models/Etudiant';
 import { Thread } from './Thread';
 export class Reponse{
 id:number;
 reply:String;
-replyDate:Date= new Date();
+replydate:Date;
 display: boolean;
+nb_likes:number;
 thread:Thread;
-updatedAt:Date= new Date();
-etudiant:number;
+updatedAt:Date;
+etudiant:Etudiant;
 }

@@ -1,1 +1,85 @@
-<p>details-thread works!</p>
+
+<br>
+<br>
+<br>
+
+<form [formGroup]="reponseForm" novalidate>
+
+  <div class="form-group" *ngIf="updateR">
+    <label for="">object</label>
+    <h1>{{object2}}</h1>
+
+  </div>
+
+
+  <div class="form-group" *ngIf="!updateR">
+    <label for="">object</label>
+    <input
+    type="text"
+    class="form-control"
+    name="object"
+    formControlName="object"
+    required
+  />
+
+   
+      <label for="">by</label>
+      <h1>{{by}}</h1>
+
+
+      <label for="">thread date</label>
+<h1>
+    
+        {{threadDate | date : "short" }}  
+      
+    </h1>
+  </div>
+
+
+
+
+  <div class="form-group" *ngIf="updateR">
+    <label for="">question</label>
+    <h1>{{question2}}</h1>
+
+  </div>
+
+  <div class="form-group" *ngIf="!updateR">
+    <label for="">question</label>
+    <input
+    type="text"
+    class="form-control"
+    name="question"
+    formControlName="question"
+    required
+  />
+  </div>
+<div class="form-group" *ngIf="!updateR">
+  <label for=""> add new reply</label>
+  <textarea class="form-control"></textarea>
+  <button class="btn btn-danger" type="submit" (click)="addReply()">
+    Add
+  </button>
+</div>
+
+  <div class="form-group" *ngIf="updateR">
+    <label for="">reply</label>
+    <input
+      type="text"
+      class="form-control"
+      name="reply"
+      formControlName="reply"
+      required
+    />
+  </div>
+  <div class="form-group" *ngIf="!updateR">
+    <label for=""> other replies </label><br>
+    <label for=""> ___by: {{etudiant.idE}}</label> <br>
+    <label>texttt should be here</label>
+  </div>
+<div class="" *ngIf="updateR">
+  <button class="btn btn-danger" type="submit" (click)="update()">
+    Save change
+  </button>
+</div>
+</form>

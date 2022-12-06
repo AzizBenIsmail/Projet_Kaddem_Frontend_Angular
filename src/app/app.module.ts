@@ -37,11 +37,11 @@ import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create
 import { UpdateThreadComponent } from "./Admin/Forum/Thread/update-thread/update-thread.component";
 import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
 import { DetailsThreadComponent } from "./Admin/Forum/Thread/details-thread/details-thread.component";
-import { ProjetsModule } from './Admin/projets/projets.module';
-import { NotFoundComponent } from './error/not-found/not-found.component';
-
-
-
+import { ProjetsModule } from "./Admin/projets/projets.module";
+import { NotFoundComponent } from "./error/not-found/not-found.component";
+import { ListReponseComponent } from "./Admin/Forum/Reponse/list-reponse/list-reponse.component";
+import { CreateReponseComponent } from "./Admin/Forum/Reponse/create-reponse/create-reponse.component";
+import { ForumComponent } from './Admin/Forum/forum/forum.component';
 
 @NgModule({
   imports: [
@@ -71,7 +71,7 @@ import { NotFoundComponent } from './error/not-found/not-found.component';
     MatTableModule,
     MatInputModule,
     UniversiteModule,
-    ProjetsModule
+    ProjetsModule,
   ],
   declarations: [
     AppComponent,
@@ -88,7 +88,10 @@ import { NotFoundComponent } from './error/not-found/not-found.component';
     UpdateThreadComponent,
     ListThreadComponent,
     DetailsThreadComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ListReponseComponent,
+    CreateReponseComponent,
+    ForumComponent,
   ],
   providers: [EquipeService, ProjetService],
   bootstrap: [AppComponent],
