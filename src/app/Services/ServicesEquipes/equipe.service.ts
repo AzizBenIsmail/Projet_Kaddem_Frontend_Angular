@@ -103,12 +103,21 @@ nbMembresParEquipe(id:number):Observable<Object>{
     return this.http.get(`http://localhost:8083/kaddem/equipe/nbEquipes`)
   }
 getEtudiants():Observable<any>{
-    return this.http.get(`http://localhost:8083/kaddem/Etudiant/`)
+    return this.http.get(
+        `http://localhost:8083/kaddem/equipe/getEtudiantsNonResponsables`
+        // `http://localhost:8083/kaddem/Etudiant/`
+    )
 }
+  getAllEtudiants():Observable<any>{
+    return this.http.get(
+        // `http://localhost:8083/kaddem/equipe/getEtudiantsNonResponsables`
+        `http://localhost:8083/kaddem/Etudiant/`
+    )
+  }
   sendMailToAdminDev(formdata: any) {
     return this.http
         .post("http://localhost:8083/kaddem/equipe/SendMessageToAdminOfEquipes/", formdata)
-        .pipe(retry(1), catchError(this.handleError));
+        // .pipe(retry(1), catchError(this.handleError));
   }
   addPushSubscriber(sub:any) {
     return this.http.post('/api/notifications', sub);
@@ -117,4 +126,43 @@ getEtudiants():Observable<any>{
   send() {
     return this.http.post('/api/newsletter', null);
   }
+  getMembersEquipe(id:any){
+    return this.http.get("http://localhost:8083/kaddem/equipe/getMembers/"+id)
+  }
+  deleteEtudiantFromEquipe(idEt:any,idEq){
+    return this.http.get("http://localhost:8083/kaddem/equipe/supprimerEtudiantFromEquipe/"+idEt+"/"+idEq)
+  }
+  deleteEtudiantPartielleFromEquipe(idet:any){
+    return this.http.post(`http://localhost:8083/kaddem/equipe/deleteEtudiantFromEquipe/`+idet,null);
+  }
+  rajouterEtudiantToEquipe(idet:any){
+    return this.http.post(`http://localhost:8083/kaddem/equipe/ValiderEtudiant/`+idet,null);
+  }
+  ajouterMembreToEquipe(idEq:number,idEt:number){
+    return this.http.put("http://localhost:8083/kaddem/equipe/ajouterMembreEquipe/"+idEq+"/"+idEt,null)
+  }
+
+
+  getAll(request): Observable<any> {
+    const params = request;
+    return this.http.get("http://localhost:8083/kaddem/equipe/getEquipeList/", {params});
+  }
+  //http://localhost:8083/kaddem/equipe/download
+  donloadExcel(){
+
+    return this.http.get("http://localhost:8083/kaddem/equipe/download",{
+        //responseType?: 'arraybuffer' | 'blob' | 'json' | 'text';
+      responseType:  'blob',
+    });
+  }
+
+
+//  protected get<T>(url: string, params: any, defaultResult: T): Observable<any> {
+//         return this.httpClient.get(url, {
+//         headers: myHeader,
+//         params: params,
+//         responseType: 'blob'
+//     })
+//       .pipe(catchError(this.handleError(defaultResult))
+//       );
 }

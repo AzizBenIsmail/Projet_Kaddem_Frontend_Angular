@@ -18,6 +18,7 @@ export class Equipe{
 
 
 
+
 }
 export const EquipeColumns = [
     {
@@ -55,6 +56,20 @@ export const EquipeColumns = [
         required: true
 
     },
+    {
+        key: 'dateCreation',
+        type: 'text',
+        label: 'Date Creation',
+        required: true
+
+    },
+    // {
+    //     key: 'members',
+    //     type: 'text',
+    //     label: 'Voir Membres'
+    //
+    // },
+
 
 
 

@@ -1,6 +1,5 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app.routing";
@@ -27,6 +26,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { ConfirmDialogComponent } from "./Admin/EquipesManagment/confirm-dialog/confirm-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
+
 // import { DetailEquipeAdminManagmentComponent } from "./Admin/EquipesManagment/detail-equipe-admin-managment/detail-equipe-admin-managment.component";
 import { UniversiteserviceService } from "./Services/ServicesUniversite/universiteservice.service";
 import { UniversiteComponent } from "./Admin/UniversiteManegment/universite/universite.component";
@@ -41,66 +41,75 @@ import { DetailsThreadComponent } from "./Admin/Forum/Thread/details-thread/deta
 import { ProjetsModule } from './Admin/projets/projets.module';
 import {CreateEquipeComponent} from './Admin/EquipesManagment/createEquipe/create-equipe/create-equipe.component';
 import { NotFoundComponent } from './error/not-found/not-found.component';
-import {MatCardModule} from '@angular/material/card';
+// import {MatCardModule} from '@angular/material/card';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MembersEquipesComponent } from './Admin/EquipesManagment/members-equipes/members-equipes.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ExportExcelComponent } from './Admin/EquipesManagment/export-excel/export-excel.component';
 
 
 
 
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ComponentsModule,
-    RouterModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatIconModule,
-    MatButtonModule,
-    AdminLayoutModule,
-    MatRippleModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatTooltipModule,
-    MatChipsModule,
-    NgbModule,
-    EquipesAdminModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatTableModule,
-    MatInputModule,
-    MatCardModule,
-    UniversiteModule,
-    ProjetsModule,
-    ModalModule,
-    MatProgressSpinnerModule
-  ],
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
-    EquipesComponent,
-    EquipesComponent,
-    EquipesAdminManagmentComponent,
-    UpdateEquipeComponent,
-    AddEquipeComponent,
-    ConfirmDialogComponent,
-    // DetailEquipeAdminManagmentComponent,
-    UniversiteComponent,
-    CreateThreadComponent,
-    UpdateThreadComponent,
-    ListThreadComponent,
-      ContactAdminDevEquipesComponent,
-    DetailsThreadComponent,
-      CreateEquipeComponent,
-    NotFoundComponent
-  ],
-  providers: [EquipeService, ProjetService],
-  bootstrap: [AppComponent],
+    imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ComponentsModule,
+        RouterModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatIconModule,
+        MatButtonModule,
+        AdminLayoutModule,
+        MatRippleModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatTooltipModule,
+        MatChipsModule,
+        NgbModule,
+        EquipesAdminModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatCheckboxModule,
+        MatDialogModule,
+        MatTableModule,
+        MatInputModule,
+        // MatCardModule,
+        UniversiteModule,
+        ProjetsModule,
+        ModalModule,
+        MatProgressSpinnerModule
+    ],
+    declarations: [
+        AppComponent,
+        AdminLayoutComponent,
+        // EquipesComponent,
+        //   EquipesComponent,
+        //  EquipesAdminManagmentComponent,
+        //  UpdateEquipeComponent,
+        // AddEquipeComponent,
+        ConfirmDialogComponent,
+        // DetailEquipeAdminManagmentComponent,
+        UniversiteComponent,
+        CreateThreadComponent,
+        UpdateThreadComponent,
+        ListThreadComponent,
+        // ContactAdminDevEquipesComponent,
+        DetailsThreadComponent,
+        //   CreateEquipeComponent,
+        NotFoundComponent,
+
+
+
+    ],
+    providers: [EquipeService, ProjetService],
+    bootstrap: [AppComponent],
+    exports: [
+        // ContactAdminDevEquipesComponent
+    ]
 })
 export class AppModule {}

@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {EquipeService} from '../../../Services/ServicesEquipes/equipe.service';
 import {ModalDismissReasons, NgbActiveModal, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 @Component({
   selector: 'app-add-equipe',
   templateUrl: './add-equipe.component.html',

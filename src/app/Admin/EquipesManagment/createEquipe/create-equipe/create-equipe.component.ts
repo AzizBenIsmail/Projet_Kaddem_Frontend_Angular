@@ -1,10 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EquipeService} from '../../../../Services/ServicesEquipes/equipe.service';
 import {Router} from '@angular/router';
 import {delay, of} from 'rxjs';
 import {EquipeValidator} from '../../EquipeValidator/EquipeValidator';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import {DOCUMENT} from '@angular/common';
 @Component({
   selector: 'app-create-equipe',
   templateUrl: './create-equipe.component.html',
@@ -41,6 +42,7 @@ listeEtudiants:any [];
   etu:any[];
   listeNoms:any;
   constructor(
+      @Inject(DOCUMENT) private _document: Document,
       private fb: FormBuilder,
       private EquipeService: EquipeService,
       private router: Router
@@ -95,7 +97,15 @@ this.listeEtudiants=etudiants
       };
     }
   }
+  data2 = [];
+  loaddata()
+  {
 
+    this.EquipeService.findAllEquipes().subscribe((res: any)=>{
+
+      this.data2 = res;
+    });
+  }
   onSubmit = () => {
     console.log(this.createEquipeForm);
     if (this.createEquipeForm.valid) {
@@ -117,13 +127,22 @@ this.listeEtudiants=etudiants
           () => {
 
             this.isLoading = false;
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Equipe bien ajoutée',
+              showConfirmButton: false,
+              timer: 3000
+            })
 
+this.refresh()
           },
           err => {
             this.isLoading = false;
             this.failed = true;
           }
       );
+      this.loaddata()
     }
 
   };
@@ -131,5 +150,8 @@ this.listeEtudiants=etudiants
     return of(this.listeNomEquipes.some((a) => a === value)).pipe(
         delay(1000)
     );
+  }
+  refresh():void {
+    this._document.defaultView.location.reload();
   }
 }

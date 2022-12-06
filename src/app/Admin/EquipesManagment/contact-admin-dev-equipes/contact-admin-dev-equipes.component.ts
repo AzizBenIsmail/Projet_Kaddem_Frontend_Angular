@@ -1,21 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {EquipeService} from '../../../Services/ServicesEquipes/equipe.service';
-
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import {DOCUMENT} from '@angular/common';
 @Component({
   selector: 'app-contact-admin-dev-equipes',
   templateUrl: './contact-admin-dev-equipes.component.html',
   styleUrls: ['./contact-admin-dev-equipes.component.scss']
 })
 export class ContactAdminDevEquipesComponent implements OnInit {
+  ckconfig = {
+    toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+  };
+  data="rrrrrrrrr"
+  editor = ClassicEditor;
+  public Editor = ClassicEditor;
   sendMailForm = this.fb.group({
-    title: ["", Validators.required],
-    body: ["", Validators.required]
+    title: ["", [Validators.minLength(3), Validators.required]],
+    body: ["",[ Validators.minLength(10), Validators.required]]
   });
   failed = false;
   isLoading = false;
   constructor( private fb: FormBuilder,
-               private EquipeService: EquipeService
+               private EquipeService: EquipeService,
+               @Inject(DOCUMENT) private _document: Document
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +42,14 @@ export class ContactAdminDevEquipesComponent implements OnInit {
 
       this.EquipeService.sendMailToAdminDev(formdata).subscribe(
           () => {
+            Swal.fire({
+              title: 'Mail',
+              text:   "Mail bien envoyé",
+              icon: 'success'
 
+            });
+            this.refresh()
+console.log("biennn")
             this.isLoading = false;
           },
           err => {
@@ -41,6 +57,25 @@ export class ContactAdminDevEquipesComponent implements OnInit {
             this.failed = true;
           }
       );
+    }else{
+      Swal.fire({
+        title: 'Mail',
+        text:   "Mail non envoyé",
+        icon: 'error'
+      });
     }
   };
+
+
+  sendP(f:any){
+    this.EquipeService.sendMailToAdminDev(f).subscribe(
+        ()=>{console.log("ADDED !");
+        }
+    )
+  }
+
+  refresh():void {
+    this._document.defaultView.location.reload();
+  }
+
 }

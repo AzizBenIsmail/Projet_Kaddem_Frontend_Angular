@@ -105,120 +105,138 @@
         </div>
     </div>
 
-    <div class="row g-6 mb-6">
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="card shadow border-0">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
-                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Nombre des equipes non activées</span>
-                            <span class="h3 font-bold mb-0">{{nombreListesNonActivees}}</span>
-                        </div>
-                        <div class="col-auto">
-                            <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                                <i class="bi bi-credit-card"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-2 mb-0 text-sm">
-                                    <span class="badge badge-pill bg-soft-success text-success me-2">
-                                        <i class="bi bi-arrow-up me-1"></i>13%
-                                    </span>
-                        <span class="text-nowrap text-xs text-muted">Since last month</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="card shadow border-0">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
-                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Nombre des equipes activées</span>
-                            <span class="h3 font-bold mb-0">{{nombreListesActivees}}</span>
-                        </div>
-                        <div class="col-auto">
-                            <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                <i class="bi bi-people"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-2 mb-0 text-sm">
-                                    <span class="badge badge-pill bg-soft-success text-success me-2">
-                                        <i class="bi bi-arrow-up me-1"></i>30%
-                                    </span>
-                        <span class="text-nowrap text-xs text-muted">Since last month</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="card shadow border-0">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
-                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total hours</span>
-                            <span class="h3 font-bold mb-0">1.400</span>
-                        </div>
-                        <div class="col-auto">
-                            <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                <i class="bi bi-clock-history"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-2 mb-0 text-sm">
-                                    <span class="badge badge-pill bg-soft-danger text-danger me-2">
-                                        <i class="bi bi-arrow-down me-1"></i>-5%
-                                    </span>
-                        <span class="text-nowrap text-xs text-muted">Since last month</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="card shadow border-0">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
-                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Work load</span>
-                            <span class="h3 font-bold mb-0">95%</span>
-                        </div>
-                        <div class="col-auto">
-                            <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                <i class="bi bi-minecart-loaded"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-2 mb-0 text-sm">
-                                    <span class="badge badge-pill bg-soft-success text-success me-2">
-                                        <i class="bi bi-arrow-up me-1"></i>10%
-                                    </span>
-                        <span class="text-nowrap text-xs text-muted">Since last month</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
+<!--    <div class="row g-6 mb-6">-->
+<!--        <div class="col-xl-3 col-sm-6 col-12">-->
+<!--            <div class="card shadow border-0">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Nombre des equipes non activées</span>-->
+<!--                            <span class="h3 font-bold mb-0">{{nombreListesNonActivees}}</span>-->
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">-->
+<!--                                <i class="bi bi-credit-card"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mt-2 mb-0 text-sm">-->
+<!--                                    <span class="badge badge-pill bg-soft-success text-success me-2">-->
+<!--                                        <i class="bi bi-arrow-up me-1"></i>13%-->
+<!--                                    </span>-->
+<!--                        <span class="text-nowrap text-xs text-muted">Since last month</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-xl-3 col-sm-6 col-12">-->
+<!--            <div class="card shadow border-0">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Nombre des equipes activées</span>-->
+<!--                            <span class="h3 font-bold mb-0">{{nombreListesActivees}}</span>-->
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">-->
+<!--                                <i class="bi bi-people"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mt-2 mb-0 text-sm">-->
+<!--                                    <span class="badge badge-pill bg-soft-success text-success me-2">-->
+<!--                                        <i class="bi bi-arrow-up me-1"></i>30%-->
+<!--                                    </span>-->
+<!--                        <span class="text-nowrap text-xs text-muted">Since last month</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-xl-3 col-sm-6 col-12">-->
+<!--            <div class="card shadow border-0">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total hours</span>-->
+<!--                            <span class="h3 font-bold mb-0">1.400</span>-->
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <div class="icon icon-shape bg-info text-white text-lg rounded-circle">-->
+<!--                                <i class="bi bi-clock-history"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mt-2 mb-0 text-sm">-->
+<!--                                    <span class="badge badge-pill bg-soft-danger text-danger me-2">-->
+<!--                                        <i class="bi bi-arrow-down me-1"></i>-5%-->
+<!--                                    </span>-->
+<!--                        <span class="text-nowrap text-xs text-muted">Since last month</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-xl-3 col-sm-6 col-12">-->
+<!--            <div class="card shadow border-0">-->
+<!--                <div class="card-body">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Work load</span>-->
+<!--                            <span class="h3 font-bold mb-0">95%</span>-->
+<!--                        </div>-->
+<!--                        <div class="col-auto">-->
+<!--                            <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">-->
+<!--                                <i class="bi bi-minecart-loaded"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mt-2 mb-0 text-sm">-->
+<!--                                    <span class="badge badge-pill bg-soft-success text-success me-2">-->
+<!--                                        <i class="bi bi-arrow-up me-1"></i>10%-->
+<!--                                    </span>-->
+<!--                        <span class="text-nowrap text-xs text-muted">Since last month</span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
     <div  class="container-fluid">
+
         <div class="dls-menu-item">
-            <button class="btn btn-md btn-outline-primary" (click)="onPress()"><i class="fa fa-users"></i>   Ajouter une equipe</button>
+            <button style="margin: 10px" class="btn btn-md btn-outline-primary" (click)="onPress()"><i class="fa fa-users"></i>   Ajouter une equipe</button>
+            <button style="margin: 10px" class="btn btn-md btn-outline-primary" (click)="onPress2()"><i class="fa fa-mail-reply"></i>    Contacter le developpeur de cette partie</button>
+            <button style="margin: 10px" class="btn btn-md btn-outline-primary" (click)="onPress3()"><i class="fa fa-download"></i>   Telecharger</button>
+            <button style="margin: 10px" data-inline="true" class="btn btn-outline-primary " (click)="refresh()" ><i class="fa fa-refresh"></i>   Actualiser La page</button>
+
         </div>
-        <br/>
-        <br/>
-        <br/>
+<!--        <div class="dls-menu-item">-->
+<!--        </div>-->
+<!--        <div class="dls-menu-item">-->
+<!--        </div>-->
+
 
 
         <div id="comp-render" *ngIf="display">
             <app-create-equipe></app-create-equipe>
+
+        </div>
+        <div  *ngIf="display2">
+
             <app-contact-admin-dev-equipes></app-contact-admin-dev-equipes>
+        </div>
+        <div  *ngIf="display3">
+            <app-export-excel></app-export-excel>
+
         </div>
 
         <div >
             <p>
-            <button data-inline="true" class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
-            <button data-inline="true" class="btn btn-danger btn-block" (click)="refresh()" type="button">Refresh page</button>
+<!--            <button data-inline="true" class="btn btn-success " (click)="openPDF()">Download PDF</button>-->
+<!--                <button data-inline="true" class="btn btn-info " (click)="dowloadExcel()" type="button">Telecharger les equipes sous format Excel</button>-->
 </p>
+            <a [routerLink]="[ '/PDFEXCEL' ]" ><small>voir plus de fonctionnalités</small></a>
         </div>
 
 
@@ -228,9 +246,9 @@
 
             <div>
 
-                <button class="button-add-row" mat-button (click)="addRow()">
-                    Add Row
-                </button>
+<!--                <button class="button-add-row" mat-button (click)="addRow()">-->
+<!--                    Add Row-->
+<!--                </button>-->
             </div>
         </article>
 <mat-form-field>
@@ -263,26 +281,36 @@
 
                         <div *ngIf="col.key=='nombreMembre'">
 
-                            <h1>{{nombreMembreParEquipe}}</h1>
+                            <small>{{nombreMembreParEquipe}}</small>
+                        </div>
+                        <div *ngIf="col.key=='dateCreation'">
+
+                            <small>{{element.detailEquipe.dateCreation | date:'dd-MM-yyyy HH:mm:ss' }}</small>
                         </div>
 
                         <div *ngIf="col.key=='NomResponsable'">
 
-                            <h1>{{element.etudiant.nom}}</h1>
+                            <small>{{element.etudiant.nom}}</small>
+                        </div>
+
+                        <div *ngIf="col.key=='members'">
+
+<!--                            <a [routerLink]="['/getMembers/',element.idEquipe] ">voir membres</a>-->
                         </div>
                         <div class="btn-edit" *ngSwitchCase="'isEdit'">
-                            <button type="button" class="btn btn-primary relative waves-light" data-toggle="modal"   (click)="showModal(element.idEquipe)">
-                                Afficher plus de details
+                            <a [routerLink]="['/getMembers/',element.idEquipe] "><mat-icon>group</mat-icon></a>
+                            <button  mat-button   data-toggle="modal"   (click)="showModal(element.idEquipe)">
+                                <mat-icon  style="color: blue"> <i class="fa fa-plus" ></i></mat-icon>
                             </button>
                             <button mat-button (click)="element.isEdit = !element.isEdit">
-                                Edit
+                                <mat-icon style="color: green">edit</mat-icon>
                             </button>
                             <button
                                     mat-button
                                     class="button-remove"
                                     (click)="removeRow(element.idEquipe)"
                             >
-                                Delete
+                                <mat-icon style="color: red">delete</mat-icon>
                             </button>
 
                             <button *ngIf="!element.isValid"
@@ -292,7 +320,7 @@
                                     (click)="ChangeValiditeRow(element.idEquipe)"
                             >
                                 <i style="color: red" class="fa fa-circle-thin fa-1x" aria-hidden="true"> </i>
-                      {{text}}
+<!--                      {{text}}-->
                             </button>
                             <button *ngIf="element.isValid"
                                     mat-button
@@ -301,7 +329,7 @@
                                     (click)="ChangeValiditeRow(element.idEquipe)"
                             >
                                 <i style="color: green" class="fa fa-check fa-1x" aria-hidden="true"> </i>
-                               {{text}}
+<!--                               {{text}}-->
                             </button>
 
 
@@ -335,7 +363,7 @@
                                     (click)="editRow(element)"
                                     [disabled]="disableSubmit(element.idEquipe)"
                             >
-                                Done
+                                Enregistrer
                             </button>
 
 
@@ -405,6 +433,15 @@
             </th>
         </table>
 
+
+
+        <mat-paginator [pageSizeOptions]="[1, 2, 15, 20]" [pageSize]="1" [length]="totalElements" (page)="nextPage($event)"> </mat-paginator>
+
+
+
+
+
+
         <div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -418,14 +455,126 @@
                         <div class="card lesson-border">
                             <img class="card-img-bottom" src="{{image}}" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title"><b>Title: </b>{{nomEquipe}}</h5>
+<!--                                <h5 class="card-title"><b>Title: </b>{{nomEquipe}}</h5>-->
 
-                                <p class="card-text"><b>Crée le : </b>{{dateCreation | date:'dd-MM-yyyy HH:mm:ss'}}</p>
-                                <p class="card-text"><b>activée le : </b>{{dateActivation | date:'dd-MM-yyyy HH:mm:ss'}}</p>
-                                <p class="card-text"><b>Nombre de participants </b>{{nombreParticipants}}</p>
-                                <p class="card-blog"><b>Nombre des membres</b>{{nombreMembreParEquipe}}</p>
+<!--                                <p class="card-text"><b>Crée le : </b>{{dateCreation | date:'dd-MM-yyyy HH:mm:ss'}}</p>-->
+<!--                                <p class="card-text"><b>activée le : </b>{{dateActivation | date:'dd-MM-yyyy HH:mm:ss'}}</p>-->
+<!--                                <p class="card-text"><b>Nombre maximum des participants </b>{{nombreParticipants}}</p>-->
+<!--                                <p class="card-blog"><b>Nombre des membres</b>{{nombreMembreParEquipe}}</p>-->
+                                <div   class="card">
+                                    <div   class="card-header card-header-tabs card-header-primary">
+                                        <div  class="nav-tabs-navigation">
+                                            <div  class="nav-tabs-wrapper">
+                                                <span class="nav-tabs-title">{{nomEquipe}}:</span>
+                                                <ul class="nav nav-tabs" data-tabs="tabs">
+                                                    <li class="nav-item">
+                                                        <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                                            <i class="material-icons">bug_report</i> Details
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                                            <i class="material-icons">code</i> Membres
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                    </li>
 
-<!--                                <p class="card-text"><b>Description: </b>{{lesson.description}}</p>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="profile">
+                                                <table class="table">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>
+
+                                                        </td>
+                                                        <td>   <h5 class="card-title"><b>nom de l'equipe : </b>{{nomEquipe}}</h5></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                        </td>
+                                                        <td>  <p class="card-text"><b>Crée le : </b>{{dateCreation | date:'dd-MM-yyyy HH:mm:ss'}}</p></td>
+                                                        <td class="td-actions text-right">
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                        </td>
+                                                        <td>  <p class="card-text"><b>activée le : </b>{{dateActivation | date:'dd-MM-yyyy HH:mm:ss'}}</p>
+                                                        </td>
+                                                        <td class="td-actions text-right">
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                        </td>
+                                                        <td>  <p class="card-text"><b>Salle : </b>{{salle }}</p></td>
+                                                        <td class="td-actions text-right">
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                        </td>
+                                                        <td>  <p class="card-text"><b>Thematique : </b>{{thematique }}</p></td>
+                                                        <td class="td-actions text-right">
+
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="tab-pane" id="messages">
+                                                <table class="table">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>
+
+                                                        </td>
+                                                        <td>  <p class="card-blog"><b>Nom du responsable: </b> {{nomResponsable}}</p></td>
+                                                        <td class="td-actions text-right">
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                        </td>
+                                                        <td>   <p class="card-text"><b>Nombre maximum des participants: </b> {{nombreParticipants}}</p>
+                                                        </td>
+                                                        <td class="td-actions text-right">
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+
+                                                        </td>
+                                                        <td>  <p class="card-blog"><b>Nombre des membres: </b> {{nombreMembreParEquipe}}</p></td>
+                                                        <td class="td-actions text-right">
+
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                            <!--                                <p class="card-text"><b>Description: </b>{{lesson.description}}</p>-->
 <!--                                <p class="card-text"><b>Category: </b>{{lesson.category}}</p>-->
 <!--                                <p class="card-text"><b>Content: </b>{{lesson.lessoncontent}}</p>-->
                             </div>
