@@ -4,7 +4,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm, FormControl } from '@angular/forms';
 import { Etudiant } from 'app/models/Etudiant';
 import { Reponse } from 'app/models/Reponse';
-import { threadId } from 'worker_threads';
 
 declare var $: any;
 

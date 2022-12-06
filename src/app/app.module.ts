@@ -1,3 +1,4 @@
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -27,6 +28,7 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { ConfirmDialogComponent } from "./Admin/EquipesManagment/confirm-dialog/confirm-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatTableModule } from "@angular/material/table";
+import { UniversiteModule } from './Admin/universite/universite.module'; 
 // import { DetailEquipeAdminManagmentComponent } from "./Admin/EquipesManagment/detail-equipe-admin-managment/detail-equipe-admin-managment.component";
 import { UniversiteserviceService } from "./Services/ServicesUniversite/universiteservice.service";
 import { AddEquipeComponent } from "./Admin/EquipesManagment/add-equipe/add-equipe.component";
@@ -34,19 +36,16 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create-thread.component";
 import { UpdateThreadComponent } from "./Admin/Forum/Thread/update-thread/update-thread.component";
 import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
-import {ContactAdminDevEquipesComponent} from './Admin/EquipesManagment/contact-admin-dev-equipes/contact-admin-dev-equipes.component';
+import { ContactAdminDevEquipesComponent } from "./Admin/EquipesManagment/contact-admin-dev-equipes/contact-admin-dev-equipes.component";
 import { DetailsThreadComponent } from "./Admin/Forum/Thread/details-thread/details-thread.component";
 import { ListReponseComponent } from "./Admin/Forum/Reponse/list-reponse/list-reponse.component";
 import { CreateReponseComponent } from "./Admin/Forum/Reponse/create-reponse/create-reponse.component";
-import { ForumComponent } from './Admin/Forum/forum/forum.component';
-import { ProjetsModule } from './Admin/projets/projets.module';
-import {CreateEquipeComponent} from './Admin/EquipesManagment/createEquipe/create-equipe/create-equipe.component';
-import { NotFoundComponent } from './error/not-found/not-found.component';
-import {MatCardModule} from '@angular/material/card';
-import { DepartementModule } from './Admin/departement/departement.module';
-
-
-
+import { ForumComponent } from "./Admin/Forum/forum/forum.component";
+import { ProjetsModule } from "./Admin/projets/projets.module";
+import { CreateEquipeComponent } from "./Admin/EquipesManagment/createEquipe/create-equipe/create-equipe.component";
+import { NotFoundComponent } from "./error/not-found/not-found.component";
+import { MatCardModule } from "@angular/material/card";
+import { DepartementModule } from "./Admin/departement/departement.module";
 
 @NgModule({
   imports: [
@@ -81,7 +80,7 @@ import { DepartementModule } from './Admin/departement/departement.module';
     ProjetsModule,
     ModalModule,
     DepartementModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   declarations: [
     AppComponent,
@@ -96,13 +95,13 @@ import { DepartementModule } from './Admin/departement/departement.module';
     CreateThreadComponent,
     UpdateThreadComponent,
     ListThreadComponent,
-      ContactAdminDevEquipesComponent,
+    ContactAdminDevEquipesComponent,
     DetailsThreadComponent,
     ListReponseComponent,
     CreateReponseComponent,
     ForumComponent,
-      CreateEquipeComponent,
-    NotFoundComponent
+    CreateEquipeComponent,
+    NotFoundComponent,
   ],
   providers: [EquipeService, ProjetService],
   bootstrap: [AppComponent],

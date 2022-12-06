@@ -2,10 +2,10 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Equipe } from 'app/models/Equipe';
 import {catchError, delay, Observable, of, retry, throwError} from 'rxjs';
-import { getSystemErrorMap } from 'util';
+//import { getSystemErrorMap } from 'util'; 
 import {NgForm} from '@angular/forms';
 import { map } from 'rxjs/operators';
-import * as http from 'http';
+//import * as http from 'http';
 const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json"
