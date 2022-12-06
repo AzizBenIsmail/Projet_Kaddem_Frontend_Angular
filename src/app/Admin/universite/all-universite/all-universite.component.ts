@@ -43,7 +43,7 @@ export class AllUniversiteComponent implements OnInit {
     }
 
     refresh(): void {
-        this.showNotification('top', 'left');
+        //this.showNotification('top', 'left');
         this.doc.defaultView.location.reload();
     }
 
@@ -55,7 +55,7 @@ export class AllUniversiteComponent implements OnInit {
                 (universites: Universite) => universites.idUniversite !== id
             );
         });
-       // this.refresh();
+         this.refresh();
     }
 
     showNotification(from, align) {
@@ -99,9 +99,9 @@ export class AllUniversiteComponent implements OnInit {
         Swal.fire('Thank you...', 'You submitted succesfully!', 'success')
     }
 
-    confirmBox(idUniversite: any,nom: any) {
+    confirmBox(idUniversite: any, nom: any) {
         Swal.fire({
-            title: 'Are you sure want to remove : '+nom+' ?',
+            title: 'Are you sure want to remove : ' + nom + ' ?',
             text: 'You will not be able to recover this Universite!',
             icon: 'warning',
             showCancelButton: true,
@@ -124,5 +124,12 @@ export class AllUniversiteComponent implements OnInit {
             }
         })
     }
+
+    display: boolean = false;
+
+    Show() {
+      this.display=!this.display
+    }
+
 
 }

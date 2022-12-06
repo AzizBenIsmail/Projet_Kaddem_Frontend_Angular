@@ -1,5 +1,6 @@
 <div class="main-content">
     <div class="container-fluid">
+
         <div class="row">
             <div class="col-md-12">
                 <button data-inline="true" matTooltip="Edit Task"
@@ -7,18 +8,21 @@
                         type="button">
                     <i class="material-icons">refresh</i>
                 </button>
-
+<!--                <button mat-raised-button (click)="Show()" type="button" matTooltip="Edit Task"-->
+<!--                        [matTooltipPosition]="'above'" class="glyphicon glyphicon-plus">-->
+<!--                    <i class="material-icons">add</i>-->
+<!--                </button>-->
+                <div *ngIf="display"> <app-add-universite></app-add-universite>  </div>
                 <div class="card">
 
                     <div class="card-header card-header-danger">
 
                         <h4 class="card-title ">Universite
 
-                            <button mat-raised-button [routerLink]="['add']" type="button" matTooltip="Edit Task"
+                          <button mat-raised-button [routerLink]="['add']" type="button" matTooltip="Edit Task"
                                     [matTooltipPosition]="'above'" class="glyphicon glyphicon-plus">
                                 <i class="material-icons">add</i>
                             </button>
-
                         </h4>
                         <p class="card-category"> Tout les universites</p>
                     </div>
@@ -27,26 +31,13 @@
                             <table class="table">
 
                                 <thead class=" text-primary">
-                                <th>
-                                    ID
-                                </th>
-                                <th>
-                                    Nom
-                                </th>
-                                <th>
-                                    Etat
-                                </th>
-                                <th>
-                                    Reputation
-                                </th>
-                                <th>
-                                    Surface
-
-                                </th><th>
-                                    date_creation
-                                </th><th>
-                                    date_update
-                                </th>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Etat</th>
+                                <th>Reputation</th>
+                                <th>Surface</th>
+                                <th>date_creation</th>
+                                <th>date_update</th>
                                 <th>
                                     Action
                                 </th>
@@ -54,8 +45,9 @@
 
                                 <tbody>
 
-                                <tr *ngFor="let uni of universites" [ngStyle]="{'background-color':uni.etatUniversite === 'Fible' ? 'red' : 'green' }">
-                                    <td class="font-weight-bold" >
+                                <tr *ngFor="let uni of universites"
+                                    [ngStyle]="{'background-color':uni.etatUniversite === 'Fible' ? '#ffcccb' : '#90EE90' }">
+                                    <td class="font-weight-bold">
                                         {{ uni.idUniversite }}
                                     </td>
                                     <td class="font-weight-bold">
@@ -67,11 +59,11 @@
                                     <td class="font-weight-bold">
                                         {{ uni.reputationUniversite }}
                                     </td>
-                                    <td class="font-weight-bold" >
+                                    <td class="font-weight-bold">
                                         {{ uni.surfaceUniversite }}
 
                                     </td>
-                                    <td class="font-weight-bold" >
+                                    <td class="font-weight-bold">
                                         {{ uni.date_creation }}
                                     </td>
                                     <td class="font-weight-bold">
@@ -80,7 +72,8 @@
 
                                     <td>
 
-                                        <button [routerLink]="['update/'+uni.idUniversite]" type="button" matTooltip="Edit Task"
+                                        <button [routerLink]="['update/'+uni.idUniversite]" type="button"
+                                                matTooltip="Edit Task"
                                                 [matTooltipPosition]="'above'"
                                                 class="btn btn-info"
                                         >Modifier
