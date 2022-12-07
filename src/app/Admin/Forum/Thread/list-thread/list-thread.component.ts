@@ -32,7 +32,7 @@ export class ListThreadComponent implements OnInit {
         //  console.log(data)
 
         for (let i = 0; i < data.length; i++) {
-          this.threads[i].etudiant.ide = data[i].etudiant.idE;
+          // this.threads[i].etudiant.ide = data[i].etudiant.idE;
         }
         console.log(this.threads);
       },
@@ -52,7 +52,15 @@ export class ListThreadComponent implements OnInit {
       this.threads.push(thread);
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.threadService.findAll().subscribe(
+        (data:any)=>{
+          console.log(data)
+        }
+    )
+
+  }
 
   editThreadRequest(thread: Thread) {
     this.selectedThread = Object.assign({}, thread);

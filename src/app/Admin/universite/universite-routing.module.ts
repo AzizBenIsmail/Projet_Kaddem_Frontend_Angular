@@ -7,7 +7,7 @@ import {UpdateuniversiteComponent} from './updateuniversite/updateuniversite.com
 const routes: Routes = [
   {path:'', component:AllUniversiteComponent},
   {path:'add', component:AddUniversiteComponent},
-  {path:'update/:id', component:UpdateuniversiteComponent},
+  {path:'update/:idUniversite', component:UpdateuniversiteComponent},
 
 
 ];

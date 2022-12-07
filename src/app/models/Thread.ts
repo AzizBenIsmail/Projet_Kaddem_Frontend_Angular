@@ -7,7 +7,7 @@ export class Thread {
   postDate: Date = new Date();
   display: boolean;
   object: String;
-  etudiant: Etudiant;
+  // etudiant: Etudiant;
   verified: boolean = false;
   updatedAt: Date = new Date();
 }
