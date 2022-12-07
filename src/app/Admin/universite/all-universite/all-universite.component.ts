@@ -30,16 +30,16 @@ export class AllUniversiteComponent implements OnInit {
             }
         )
 
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function () {
-            var s1 = document.createElement('script'), s0 = document.getElementsByTagName('script')[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/6387af92daff0e1306da4b99/1gj50bndm';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-
+    
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/639090a0daff0e1306db5cd3/1gjmb9suh';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
     }
 
     refresh(): void {
