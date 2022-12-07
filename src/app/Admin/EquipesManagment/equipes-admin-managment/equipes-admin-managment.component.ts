@@ -207,7 +207,7 @@ detailEquipe:new DetailEquipe(),
               text:   "Equipe Bien supprimée",
               icon: 'success'
           });
-          this.loaddata();
+          this.reloadComponent();
       }
   }
   ChangeValiditeRow(id:number) {
@@ -253,7 +253,7 @@ if(confirm("etes vous sure de changer la validité de cette equipe ?")){
 
 
   }
-      this.refresh()
+      this.reloadComponent();
     }
 
 
@@ -483,9 +483,13 @@ if(confirm("etes vous sure de changer la validité de cette equipe ?")){
     }
     dowloadExcel(){
         return this.equipeService.donloadExcel().subscribe(
-            ()=>{
-
-            }
+            ()=>{}
         )
+    }
+
+    reloadComponent() {
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate(['/Equipes']);
     }
 }
