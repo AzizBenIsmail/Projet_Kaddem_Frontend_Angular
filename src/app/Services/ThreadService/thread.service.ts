@@ -33,4 +33,11 @@ export class ThreadService {
   delete(thread: Thread): Observable<Thread> {
     return this.http.get<Thread>(URL + "/deleteThread/" + thread.id);
   }
+
+  verifIfLiked(idt: number, ide: number): Observable<Boolean> {
+    return this.http.get<Boolean>(URL + "/like/" + idt + "/" + ide);
+  }
+  addLike(id: number, ide: number): Observable<Thread> {
+    return this.http.get<Thread>(URL + "/like2/" + id + "/" + ide);
+  }
 }

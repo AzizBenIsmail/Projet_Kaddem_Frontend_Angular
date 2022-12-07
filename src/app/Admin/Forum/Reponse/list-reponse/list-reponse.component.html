@@ -19,15 +19,8 @@
           </div>
 
 
-          <app-create-reponse  [reponse]="selectedReponse"
-            (save)="saveReponseWatcher($event)"
-        ></app-create-reponse>
+    
           <div class="card">
-            <div class="col-6 text-end">
-              <button class="btn btn-primary" (click)="createReponseRequest()">
-                Create reponse
-              </button>
-            </div>
             <br />
             <div class="alert alert-danger" *ngIf="errorMessage">
               {{errorMessage}}
@@ -66,7 +59,8 @@
                       <td>{{ reponse.replydate | date : "short" }}</td>
                       <td>{{ reponse.updatedAt | date : "short" }}</td>
                       <td>
-                        <button type="button" class="btn btn-info" (click)="editreponseRequest(reponse)">Update</button>
+                        <button type="button" class="btn btn-info" (click)="btnClickw(reponse)">View</button>
+                        <button type="button" class="btn btn-info" (click)="btnClickup(reponse)">Update</button>
                         <button type="button" class="btn btn-danger" (click)="deletereponseRequest(reponse,ind)"> Supprimer</button>
                       </td>
                     </tr>

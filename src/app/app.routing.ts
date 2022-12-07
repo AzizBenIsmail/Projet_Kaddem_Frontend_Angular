@@ -41,7 +41,8 @@ const routes: Routes = [
 
   {path: "Forum",component: AdminLayoutComponent,children: [{path: "all",component: ForumComponent,},
     {path: "all/thread",component: ListThreadComponent,},
-  {path: "all/reponse",component: DetailsThreadComponent,}],
+  {path: "all/reponse",component: ListReponseComponent,},
+  {path: "all/reponse/:r/:id",component: DetailsThreadComponent,}],
   },
   
 ];
