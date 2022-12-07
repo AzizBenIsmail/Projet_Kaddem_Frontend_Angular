@@ -22,13 +22,14 @@ export class UpdateuniversiteComponent implements OnInit {
     ngOnInit(): void {
 
 
-        const isIdPresent = this._activatedRoute.snapshot.paramMap.has('id');
-
+        const isIdPresent = this._activatedRoute.snapshot.paramMap.has('idUniversite');
+        console.log(isIdPresent);
         if (isIdPresent) {
-            const id = +this._activatedRoute.snapshot.paramMap.get('id');
+            const id = +this._activatedRoute.snapshot.paramMap.get('idUniversite');
+           
             this.universiteservice.getUniversite(id).subscribe(
                 data => {
-
+                    console.log("test");
                  this.universite= data;
                     console.log(this.universite);
                 })

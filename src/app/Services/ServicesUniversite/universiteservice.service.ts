@@ -28,7 +28,8 @@ export class UniversiteserviceService {
   }
 
   getUniversite(id: number): Observable<Universite> {
-    return this.http.get<Universite>(`${this.UniversiteAdminUrl}updateUniversite/${id}`);
+    return this.http.get<Universite>(this.UniversiteAdminUrl+"findUniversiteById?id="+id);
+  
   }
   deleteUniversite(id:number):Observable<Object>{
     return this.http.delete(`http://localhost:8083/kaddem/Universite/deleteUniversite/${id}`);
