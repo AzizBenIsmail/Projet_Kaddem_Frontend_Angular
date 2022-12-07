@@ -40,7 +40,7 @@
     "@ng-bootstrap/ng-bootstrap": "^12.1.2",
     "@popperjs/core": "^2.10.2",
     "ajv": "8.11.0",
-    "angular-datatables": "^14.0.0",
+    "angular-datatables": "^13.1.0",
     "angular-material": "^1.2.5",
     "arrive": "2.4.1",
     "bootstrap": "^4.6.2",
@@ -66,7 +66,7 @@
     "rxjs": "^7.5.5",
     "rxjs-compat": "6.6.7",
     "server": "^1.0.37",
-    "sweetalert2": "^11.6.15",
+    "sweetalert2": "^11.4.8",
     "web-animations-js": "2.3.2",
     "xlsx": "^0.18.5",
     "zone.js": "~0.11.5"

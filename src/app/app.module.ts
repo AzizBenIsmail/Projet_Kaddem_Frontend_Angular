@@ -1,7 +1,7 @@
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+// import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app.routing";
@@ -33,7 +33,7 @@ import { UniversiteModule } from './Admin/universite/universite.module';
 import { UniversiteserviceService } from "./Services/ServicesUniversite/universiteservice.service";
 import { AddEquipeComponent } from "./Admin/EquipesManagment/add-equipe/add-equipe.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create-thread.component";
+ import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create-thread.component";
 import { UpdateThreadComponent } from "./Admin/Forum/Thread/update-thread/update-thread.component";
 import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
 import { ContactAdminDevEquipesComponent } from "./Admin/EquipesManagment/contact-admin-dev-equipes/contact-admin-dev-equipes.component";
@@ -46,9 +46,13 @@ import { CreateEquipeComponent } from "./Admin/EquipesManagment/createEquipe/cre
 import { NotFoundComponent } from "./error/not-found/not-found.component";
 import { MatCardModule } from "@angular/material/card";
 import { DepartementModule } from "./Admin/departement/departement.module";
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
 @NgModule({
   imports: [
+    BrowserModule,
+
+    FormsModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -86,21 +90,21 @@ import { DepartementModule } from "./Admin/departement/departement.module";
     AppComponent,
     AdminLayoutComponent,
     EquipesComponent,
-    EquipesComponent,
-    EquipesAdminManagmentComponent,
-    UpdateEquipeComponent,
-    AddEquipeComponent,
+    // EquipesComponent,
+    // EquipesAdminManagmentComponent,
+    // UpdateEquipeComponent,
+    // AddEquipeComponent,
     ConfirmDialogComponent,
     // DetailEquipeAdminManagmentComponent,
     CreateThreadComponent,
     UpdateThreadComponent,
     ListThreadComponent,
-    ContactAdminDevEquipesComponent,
+    // ContactAdminDevEquipesComponent,
     DetailsThreadComponent,
     ListReponseComponent,
     CreateReponseComponent,
     ForumComponent,
-    CreateEquipeComponent,
+    // CreateEquipeComponent,
     NotFoundComponent,
   ],
   providers: [EquipeService, ProjetService],
