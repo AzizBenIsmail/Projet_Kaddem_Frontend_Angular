@@ -2,26 +2,18 @@
     <div class="container-fluid">
         <div class="row">     
                       <div class="card-body">
-                          <form #f="ngForm">
+                      
+                          <form [formGroup]="myForm" >
                               <div class="row">
                                   <div class="col-md-5">
                                     <mat-form-field class="example-full-width">
-                                        <input type="text" matInput placeholder="Nom de projet" name="nomProjet"   required minlength="3" #id="ngModel" [(ngModel)]="projet.nomProjet" >
-                                        <div *ngIf="id.invalid && id.touched">
-                                          <div *ngIf="id.errors?.['minlength']">
+                                        <input type="text" matInput placeholder="Nom de projet" formControlName="nomProjet"  name="nomProjet"     >
+                                      
+
+                                        <app-errors [err]="nomProjet"></app-errors>
 
 
-                                            <div
-                                            class="alert alert-info">
-                                           Le nom de projet doit avoir au moins 3 caractères    </div>
-                                            
-                                              </div>
-                                  <div *ngIf="id.errors?.['required']">
-                                    <div
-                                    class="alert alert-primary">
-                                   Le nom de projet est obligatoire  </div>
-                              </div>
-                          </div>
+
                                       </mat-form-field>
                                   </div>
 
@@ -30,19 +22,20 @@
                                      
                                      
                                    
-                                      
-                                          <mat-form-field appearance="fill">
-                                              <mat-label>Type de projet</mat-label>
-                                              <select matNativeControl  name="typeProjet"  required #idT="ngModel" [(ngModel)]="projet.typeProjet" >
-                                              
-                                                <option value="PFE">PFE</option>
-                                                <option value="PIDEV">PIDEV</option>
-                                                <option value="JEUXVIDEO">JEUXVIDEO</option>
-                                               
-                
-                                              </select>
-                                            </mat-form-field>
-  
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                      <mat-label>Type de projet </mat-label>
+                                      <input type="text" 
+                                             placeholder="PFE"
+                                             aria-label="Type"
+                                             matInput
+                                             [formControl]="myControl" 
+                                             [matAutocomplete]="auto"  formControlName="typeProjet"  >
+                                      <mat-autocomplete   autoActiveFirstOption #auto="matAutocomplete"  >
+                                        <mat-option  *ngFor="let option of filteredOptions | async" [value]="option"  > 
+                                          {{option}}
+                                        </mat-option>
+                                      </mat-autocomplete>
+                                    </mat-form-field>
   
                                       
                                     
@@ -50,18 +43,10 @@
   
                                   <div class="col-md-5">
                                       <mat-form-field class="example-full-width">
-                                        <input  matInput placeholder="Durée de projet " name="dureeProjet" [(ngModel)]="projet.dureeProjet"  required  #idD="ngModel">
+                                        <input  matInput placeholder="Durée de projet " name="dureeProjet"  formControlName="dureeProjet" >
                                      
                                         
-
-                                        <div *ngIf="idD.invalid && idD.touched">
-                                        
-                                  <div *ngIf="idD.errors?.['required']">
-                                    <div
-                                    class="alert alert-primary">
-                                   Le durée de projet est  obligatoire  </div>
-                              </div>
-                          </div>
+                                        <app-errors [err]="dureeProjet"></app-errors>
 
 
 
@@ -74,23 +59,10 @@
                               <div class="row">
                                   <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                      <input  type="date" matInput placeholder="Date début" name="dateDebutP" [(ngModel)]="projet.dateDebutP"  required   #idDD="ngModel" >
+                                      <input  type="date" matInput placeholder="Date début" name="dateDebutP" min={{date}} (change)="onDateChange()"  formControlName="dateDebutP"  >
                                   
-                                  
-                                  
-                                      <div *ngIf="idDD.invalid && idDD.touched">
-                                      
-
-                                     
-                                        
-                                          
-                              <div *ngIf="idDD.errors?.['required']">
-                                <div
-                                class="alert alert-primary">
-                               La date  de projet est obligatoire  </div>
-                          </div>
-                      </div>
-                                  
+                                   
+                                      <app-errors [err]="dateDebutP"></app-errors>
                                   
                                   
                                   
@@ -98,46 +70,45 @@
                                   </div>
                                   <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                      <input  type="date" matInput placeholder="Date fin"  name="dateFinP" [(ngModel)]="projet.dateFinP"  required  #idDF="ngModel" >
+                                      <input  type="date" matInput placeholder="Date fin"  name="dateFinP"  min={{startDate}} formControlName="dateFinP"  >
                                   
                                   
+                                      <app-errors [err]="dateFinP"></app-errors>
                                   
-                                  
-                                      <div *ngIf="idDF.invalid && idDF.touched">
-                                      
-
-                                          <div
-                                          class="alert alert-info">
-                                         La date  doit etre superieure à la date système    </div>
-                                          
-                                            
-                                <div *ngIf="idDF.errors?.['required']">
-                                  <div
-                                  class="alert alert-primary">
-                                 La date  de projet est obligatoire  </div>
-                            </div>
-                        </div>
+                                     
                                   
                                   
                                   
                                   
                                     </mat-form-field>
+
+
+
+
+
+                                   
+                                 
+                            
+
+
+
+
+
                                   </div>
                               </div>
                              
 
                             
 
-                        
-
+                       
                            
                          
                      
 
                              
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right"  (click)="enregistrerProjet(f)"  [disabled]="f.invalid">Envoyer</button>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right"  (click)="enregistrerProjet()"  [disabled]="myForm.invalid">Envoyer</button>
                             
-                          <button mat-raised-button  class="btn btn-danger pull-right"    [routerLink]="['/Projets']">Annuler</button>
+                          <button mat-raised-button  class="btn btn-danger pull-right"    (click)="reloadComponent()">Annuler</button>
                           
                           <div class="clearfix"></div>
                           </form>
@@ -145,12 +116,15 @@
                  
   
   
-                 
+                      <div *ngIf="clicked">
+                    
+                       <app-add-tache></app-add-tache>
+                       
+                    </div>
   
-
-
+                   
                   
-
+                  
 
 
 
@@ -162,4 +136,5 @@
     </div>  
   </div>  
 
-
+  
+   

@@ -1,35 +1,106 @@
 <div class="main-content">
+   
+
     <div class="container-fluid">
+        
         <div class="row">
 
 
 
 
+            
+            <div id="noNotif">
+                
+                <p>Pas de notifications</p>
+             
+            </div>
+          
+            <div *ngIf="clickedDelete">
+              
 
+                <section *hideAfter="5000; then placeholder" class="banner primary">
+               <div class="alert alert-success alert-white rounded">
+               
+                <div class="icon">
+                    <i class="fa fa-check"></i>
+                </div>
+                <strong>Success!</strong> 
+                Un projet et ses taches sont supprimés avec succées
+            </div>      
+        </section>
+        <ng-template #placeholder>
+          <section class="banner placeholder"   >
+           
+            <p>Pas de notifications</p>
+          </section>
+        </ng-template> 
+
+        </div>
+
+
+
+
+       
+
+
+
+
+
+
+
+
+        <div *ngIf="deletAuto">
+              
+
+            <section *hideAfter="10000; then placeholder" class="banner primary">
+           <div class="alert alert-danger alert-white rounded">
+           
+            <div class="icon">
+                <i class="fa fa-check"></i>
+            </div>
+            <strong>Danger!</strong> 
+            Un projet terminé a été supprimé ainsi que ces taches
+        </div>       
+
+    </section>
+    <ng-template #placeholder>
+      <section class="banner placeholder"   >
+       
+        <p>Pas de notifications</p>
+      </section>
+    </ng-template> 
+
+    </div>
 
 
 
     <div class="col-md-12">
+
+       
+
+
+
         <div class="card">
             <div class="card-header card-header-danger">
                 <h4 class="card-title ">Table des projets
                
 
 
-                  
+                    &nbsp;  
                     
 
                  <!--   <a [routerLink]="['add']">add</a> -->
-             <button mat-raised-button [routerLink]="['add']"
-                type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="glyphicon glyphicon-plus">
-                    <i class="material-icons">add</i>
-                </button>
+           
+                <i class="fa fa-plus" aria-hidden="true"  (click)="addProjet()" ></i>
+                &nbsp;  
+               
+                <i class="fa fa-file-excel-o" aria-hidden="true" (click)="exportExcel()" ></i>
         
             </h4>
                 <p class="card-category"></p>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div zetFadeInOut class="table-responsive">
                     <table class="table">
                         <thead class=" text-primary">
                             <th>
@@ -48,26 +119,50 @@
                                 Type
                             </th>
                             <th>
+                                Timer
+                            </th>
+                            <th>
                                 Action
                             </th>
                         </thead>
                         <tbody>
-                
-                            <tr *ngFor="let projet of projets" >
+                       <!--  {{date}} -->
+                            <tr *ngFor="let projet of projets  | paginate
+                            : {
+                                itemsPerPage: tableSize,
+                                currentPage: page,
+                                totalItems: count
+                              };
+                        let i = index" [ngClass]="{
                                
-                                <td>{{ projet.nomProjet }}</td>
+                           
+                          
+                                'alert-danger':projet.typeProjet === 'PFE'
+                              
+                              }">
+                               
+                                <td > {{ projet.nomProjet }}</td>
                                 <td>{{ projet.dureeProjet }}</td>
                                 <td>{{ projet.dateDebutP }}</td>
                                 <td>{{ projet.dateFinP }}</td>
                                 <td>{{ projet.typeProjet }}</td>
+
+
+                                <td>  <countdown (reached)="callback($event)" [text]="text" units="  Days | Hours | Minutes | Seconds"   [end]="projet.dateFinP"></countdown></td>
                                 <td>
                                    
                                  
-                                   <a [routerLink]="['update/'+projet.idProjet]"  class="fa fa-pencil" ></a>
+                                   <a class="fa fa-pencil"   (click)="updateProjet(projet)" ></a>
                                    &nbsp;
                                
-                                   <a (click)="deleteProjet(projet.idProjet)" class="fa fa-trash"  > </a>
-                                 
+                                   <a (click)="deleteProjet(projet.idProjet)" class="fa fa-trash"   > </a>
+                                   &nbsp;  
+                                <a (click)="addTache(projet)" class="fa fa-plus"> </a>    
+                                   
+                                
+                                &nbsp;
+                                    <a  (click)="getTaches(projet)" class="fa fa-search" ></a>
+
                                   
                                 </td>
                                
@@ -76,22 +171,80 @@
                         </tbody>
                     </table>
 
+                    <div class="d-flex justify-content-center">
+                        <pagination-controls
+                          previousLabel="Prev"
+                          nextLabel="Next"
+                          (pageChange)="onTableDataChange($event)"
+                         
+                        >
+                        </pagination-controls>
+                      </div>
 
 
+                 
 
+    
+ 
 
-
-
-
+    
 
                 </div>
+              
+                <div *ngIf="clicked">
+ 
+                    <app-stat-projets  [projets]="projets"  ></app-stat-projets>
+                     </div>    
+
+                     <div *ngIf="clickedAddProjet">
+                        <app-add-projet (notif)="addProjetOutput($event)" ></app-add-projet>
+                      
+                        </div>
+                        <div *ngIf="clickedUpdateProjet">
+                            <app-update-projet [projet]="projetBinding" ></app-update-projet>
+                            
+                            </div>
+                            <div *ngIf="clickedGetTaches">
+                                <app-get-taches [projet]="projetBinding" ></app-get-taches>
+                              
+                                </div>
+                <div *ngIf="clickedAddTache">
+                    <app-add-tache [projet]="projetBinding" ></app-add-tache>
+                  
+                    </div>
+
+
+                   
+
+              
+
+
+
+               
+
+                 
+
             </div>
+
+            
+         
+
+
         </div>
+       
+         
+    
+
     </div>
 
+  
+  
 
 
 
+
+
+   
 
 
 

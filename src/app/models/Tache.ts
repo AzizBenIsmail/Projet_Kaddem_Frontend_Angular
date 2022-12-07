@@ -1,6 +1,6 @@
 export class Tache{
     idTache:number;
     descriptionTache:String;
-    etatTache:number;
+    etatTache:String;
     idProjet:number;
 }
