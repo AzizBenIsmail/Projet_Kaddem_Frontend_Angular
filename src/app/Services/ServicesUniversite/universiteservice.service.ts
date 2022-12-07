@@ -27,17 +27,17 @@ export class UniversiteserviceService {
     return this.http.put(`http://localhost:8083/kaddem/Universite/updateUniversite/${id}`, value);
   }
 
-  getUniversite(id: number): Observable<Object> {
-    return this.http.get(`${this.UniversiteAdminUrl}updateUniversite/${id}`);
+  getUniversite(id: number): Observable<Universite> {
+    return this.http.get<Universite>(`${this.UniversiteAdminUrl}updateUniversite/${id}`);
   }
   deleteUniversite(id:number):Observable<Object>{
     return this.http.delete(`http://localhost:8083/kaddem/Universite/deleteUniversite/${id}`);
   }
 
 
-  updateU(id: number, value: any): Observable<Object> {
+  updateU(id: number, value: any): Observable<Universite> {
     //http://localhost:8083/kaddem/Universite/updateU/10
-    return this.http.put(`http://localhost:8083/kaddem/Universite/updateU/${id}`, value);
+    return this.http.put<Universite>(`http://localhost:8083/kaddem/Universite/updateU/${id}`, value);
   }
 
 
