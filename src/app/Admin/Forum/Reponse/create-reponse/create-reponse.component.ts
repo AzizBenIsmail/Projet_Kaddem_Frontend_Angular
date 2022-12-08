@@ -36,7 +36,7 @@ etudiant:FormControl;
    
     this.thread.id=1;
     this.thread.display=true;
-    // this.thread.etudiant.idE=1;
+     this.thread.etudiant.idE=1;
     this.thread.nb_likes=0;
     this.thread.object="object";
     this.thread.question="questuiobn";
