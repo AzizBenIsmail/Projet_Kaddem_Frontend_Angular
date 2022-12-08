@@ -210,7 +210,7 @@ if(this.updateR){
 this.id=data.id;
 this.etudiant=data.etudiant
 
-         this.by=data.thread.etudiant.idE;
+        // this.by=data.thread.etudiant.idE;
        
         this.threadDate=data.thread.postDate;
         console.log("AYOOOOOOOO"+data.reply);
