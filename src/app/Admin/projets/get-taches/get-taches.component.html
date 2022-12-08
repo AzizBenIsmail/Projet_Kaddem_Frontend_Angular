@@ -12,10 +12,9 @@
 
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header card-header-info">
+            <div class="card-header card-header-danger">
                 <h4 class="card-title ">Table des taches
-                    &nbsp;  
-                    <i class="fa fa-line-chart" aria-hidden="true"  (click)="stats()" ></i>   
+                    
                  
             </h4>
                 <p class="card-category"></p>
@@ -42,8 +41,8 @@
                              
                                
                           
-                            <div [ngStyle]="{'background-color':tache.etatTache=='DONE'?' rgb(198, 212, 239)':'white',
-                            'border':tache.etatTache=='DONE'?' 4px dashed blue':'0px'}">
+                            <div [ngStyle]="{'background-color':tache.etatTache=='DONE'?' rgba(255, 20, 0, 0.2)':'white',
+                            'border':tache.etatTache=='DONE'?' 4px dashed red':'0px'}">
 <td>{{ tache.etatTache }}</td>
                             </div>
                               

@@ -9,7 +9,6 @@ import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-threa
 import { ListReponseComponent } from "./Admin/Forum/Reponse/list-reponse/list-reponse.component";
 import { ForumComponent } from "./Admin/Forum/forum/forum.component";
 import { DetailsThreadComponent } from "./Admin/Forum/Thread/details-thread/details-thread.component";
-import { TachesFrontComponent } from "./taches-front/taches-front.component";
 
 const routes: Routes = [
   {path: "",redirectTo: "dashboard",pathMatch: "full",},
@@ -36,8 +35,7 @@ const routes: Routes = [
   {path: "Departement",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
           import("./Admin/departement/departement.module").then((m) => m.DepartementModule),},],
   },
-  {path: "front",component: TachesFrontComponent
-},
+
   {path: "",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
           import("./layouts/admin-layout/admin-layout.module").then((m) => m.AdminLayoutModule),},],
   },

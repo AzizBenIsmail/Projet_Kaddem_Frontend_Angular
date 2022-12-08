@@ -27,10 +27,6 @@ import { UpdateTacheComponent } from './update-tache/update-tache.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CountdownModule } from "ng2-countdown-timer";
-import { StatProjetsComponent } from './stat-projets/stat-projets.component';
-import { StatTachesComponent } from './stat-taches/stat-taches.component';
-
-
 
 
 
@@ -41,8 +37,7 @@ import { StatTachesComponent } from './stat-taches/stat-taches.component';
     NewDirectDirective,
     
     ErrorsComponent,
-   StatProjetsComponent,
-   StatTachesComponent,
+   
     AddProjetComponent,
     AddTacheComponent,
     GetProjetsComponent,

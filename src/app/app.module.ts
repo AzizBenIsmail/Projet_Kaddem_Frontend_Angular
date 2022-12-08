@@ -48,9 +48,6 @@ import { MatCardModule } from "@angular/material/card";
 import { DepartementModule } from "./Admin/departement/departement.module";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
-import { TachesFrontComponent } from './taches-front/taches-front.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -88,7 +85,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ModalModule,
     DepartementModule,
     MatTooltipModule,
-    DragDropModule
   ],
   declarations: [
     AppComponent,
@@ -110,7 +106,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ForumComponent,
     // CreateEquipeComponent,
     NotFoundComponent,
-  TachesFrontComponent
   ],
   providers: [EquipeService, ProjetService],
   bootstrap: [AppComponent],
