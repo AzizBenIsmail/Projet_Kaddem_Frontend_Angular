@@ -1,3 +1,4 @@
+import { Reponse } from './../../../models/Reponse';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Thread } from 'app/models/Thread';
 import { ThreadService } from 'app/Services/ThreadService/thread.service';
@@ -18,6 +19,7 @@ export class ForumComponent implements OnInit {
   thread:Thread = new Thread();
   threads:any;
   errorMessage: string = "";
+  reponse:Reponse = new Reponse();
   constructor(private router: Router ,private ThreadService:ThreadService,private ReponseService:ReponseService) {  
 
 ThreadService.findAll().subscribe(
@@ -36,10 +38,26 @@ data=>{
   addreply(Thread:Thread){
     this.ReponseService.reponsebythread(Thread.id).subscribe(
       data=>{
-        this.router.navigateByUrl('/Forum/all/reponse/0/'+data[0].id);
+
+        
+        if(data.length!=0){
+          alert("dataaa")
         console.log(data);
         
+        console.log(data[0].id);
+        this.router.navigateByUrl('/Forum/all/reponse/0/'+data[0].id);
       }
+      else{
+        
+        this.router.navigateByUrl('/Forum/all/reply/'+Thread.id);
+      }
+        console.log(data);
+        
+      },
+      err=>{
+        alert("tesst");
+      }
+
     )
   
 

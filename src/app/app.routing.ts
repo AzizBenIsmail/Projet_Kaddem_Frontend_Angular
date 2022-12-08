@@ -1,3 +1,4 @@
+import { UpdateThreadComponent } from './Admin/Forum/Thread/update-thread/update-thread.component';
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path: "Forum",component: AdminLayoutComponent,children: [{path: "all",component: ForumComponent,},
     {path: "all/thread",component: ListThreadComponent,},
   {path: "all/reponse",component: ListReponseComponent,},
-  {path: "all/reponse/:r/:id",component: DetailsThreadComponent,}],
+  {path: "all/reponse/:r/:id",component: DetailsThreadComponent,},
+  {path: "all/reply/:id",component: UpdateThreadComponent,}],
   },
   
 ];
