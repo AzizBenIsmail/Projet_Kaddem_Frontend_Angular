@@ -31,7 +31,7 @@ existe : Number ;
  projetBinding:Projet;
  page: number = 1;
  count: number = 0;
- tableSize: number = 2;
+ tableSize: number = 3;
 nomProjet : String;
 clickedNotifUpdate:boolean=false;
  text:any = {
@@ -104,7 +104,11 @@ clickedNotifUpdate:boolean=false;
   }
  
 
+  stats(){
 
+    this.clicked=true;
+  
+  }
 
   
     addProjetOutput(newItem: Projet) {
@@ -165,8 +169,12 @@ exportExcel(){
         
        });
       
-     
+      
      }
+
+
+
+    
      deleteProjet(id:number){
        this._projetService.deleteProjet(id).subscribe(
          data => {
