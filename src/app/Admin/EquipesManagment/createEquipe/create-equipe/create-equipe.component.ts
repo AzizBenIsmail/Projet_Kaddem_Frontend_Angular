@@ -135,14 +135,15 @@ this.listeEtudiants=etudiants
               timer: 3000
             })
 
-this.refresh()
+//this.refresh()
+  this.reloadComponent();
           },
           err => {
             this.isLoading = false;
             this.failed = true;
           }
       );
-      this.loaddata()
+      this.reloadComponent();
     }
 
   };
@@ -153,5 +154,12 @@ this.refresh()
   }
   refresh():void {
     this._document.defaultView.location.reload();
+  }
+
+
+  reloadComponent() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/Equipes']);
   }
 }

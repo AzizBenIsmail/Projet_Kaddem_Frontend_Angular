@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {EquipeService} from '../../../Services/ServicesEquipes/equipe.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, Validators} from '@angular/forms';
 import {EquipeValidator} from '../EquipeValidator/EquipeValidator';
 import {catchError} from 'rxjs';
@@ -31,6 +31,7 @@ allEtudiants:any=[]
     });
   constructor(private  equipeService:EquipeService,private ac:ActivatedRoute,
               private fb: FormBuilder,
+              private router: Router,
               @Inject(DOCUMENT) private _document: Document) { }
 
   ngOnInit(): void {
@@ -308,4 +309,11 @@ this.equipeService.nbMembresParEquipe(idEq).subscribe(
         XLSX.utils.book_append_sheet(wb,ws,'Sheet1')
         XLSX.writeFile(wb,this.fileName)
     }
+
+    reloadComponent() {
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate(['/Equipes']);
+    }
+
 }

@@ -65,8 +65,9 @@ export class GetTachesComponent implements OnInit {
     this.clickedUpdateTache=true;
   }
  
- 
- getEtudiant(id:number){
-
+  stats()
+ {
+  this.clicked=true;
  }
+ 
 }

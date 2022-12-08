@@ -81,7 +81,7 @@
 
 
         <div class="card">
-            <div class="card-header card-header-danger">
+            <div class="card-header card-header-info">
                 <h4 class="card-title ">Table des projets
                
 
@@ -95,7 +95,9 @@
                 &nbsp;  
                
                 <i class="fa fa-file-excel-o" aria-hidden="true" (click)="exportExcel()" ></i>
-        
+                &nbsp;  
+                <i class="fa fa-bar-chart" aria-hidden="true"  (click)="stats()" ></i>
+               
             </h4>
                 <p class="card-category"></p>
             </div>
@@ -137,7 +139,7 @@
                                
                            
                           
-                                'alert-danger':projet.typeProjet === 'PFE'
+                                'alert-primary':projet.typeProjet === 'PFE'
                               
                               }">
                                

@@ -76,9 +76,9 @@
                     </div>
                 </div>
                              
-                              <button mat-raised-button type="submit" class="btn btn-danger pull-right"  (click)="enregistrerProjet(f.value)"  [disabled]="f.invalid">Envoyer</button>
+                              <button mat-raised-button type="submit" class="btn btn-info pull-right"  (click)="enregistrerProjet(f.value)"  [disabled]="f.invalid">Envoyer</button>
                              
-                              <button mat-raised-button  class="btn btn-danger pull-right"  (click)="reloadComponent()" >Annuler</button>
+                              <button mat-raised-button  class="btn btn-info pull-right"  (click)="reloadComponent()" >Annuler</button>
                           
                               <div class="clearfix"></div>
                           </form>
@@ -86,7 +86,9 @@
                  
   
   
-  
+  <div *ngIf="clicked">
+    <app-notification></app-notification>
+  </div>
   
   
   

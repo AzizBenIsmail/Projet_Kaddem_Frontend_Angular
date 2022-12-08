@@ -4,6 +4,7 @@ import {EquipeService} from '../../../Services/ServicesEquipes/equipe.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import {DOCUMENT} from '@angular/common';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-contact-admin-dev-equipes',
   templateUrl: './contact-admin-dev-equipes.component.html',
@@ -24,6 +25,7 @@ export class ContactAdminDevEquipesComponent implements OnInit {
   isLoading = false;
   constructor( private fb: FormBuilder,
                private EquipeService: EquipeService,
+               private router: Router,
                @Inject(DOCUMENT) private _document: Document
   ) { }
 
@@ -48,7 +50,7 @@ export class ContactAdminDevEquipesComponent implements OnInit {
               icon: 'success'
 
             });
-            this.refresh()
+            this.reloadComponent();
 console.log("biennn")
             this.isLoading = false;
           },
@@ -76,6 +78,12 @@ console.log("biennn")
 
   refresh():void {
     this._document.defaultView.location.reload();
+  }
+
+  reloadComponent() {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/Equipes']);
   }
 
 }
