@@ -81,7 +81,7 @@
 
 
         <div class="card">
-            <div class="card-header card-header-danger">
+            <div class="card-header card-header-info">
                 <h4 class="card-title ">Table des projets
                
 
@@ -95,7 +95,9 @@
                 &nbsp;  
                
                 <i class="fa fa-file-excel-o" aria-hidden="true" (click)="exportExcel()" ></i>
-        
+                &nbsp;  
+                <i class="fa fa-bar-chart" aria-hidden="true"  (click)="stats()" ></i>
+               
             </h4>
                 <p class="card-category"></p>
             </div>
@@ -127,7 +129,7 @@
                         </thead>
                         <tbody>
                        <!--  {{date}} -->
-                            <tr *ngFor="let projet of projets  | paginate
+                            <tr  *ngFor="let projet of projets   |paginate
                             : {
                                 itemsPerPage: tableSize,
                                 currentPage: page,
@@ -147,7 +149,7 @@
                                 <td>{{ projet.dateFinP }}</td>
                                 <td>{{ projet.typeProjet }}</td>
 
-
+                              
                                 <td>  <countdown (reached)="callback($event)" [text]="text" units="  Days | Hours | Minutes | Seconds"   [end]="projet.dateFinP"></countdown></td>
                                 <td>
                                    

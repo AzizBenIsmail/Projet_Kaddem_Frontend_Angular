@@ -1,3 +1,3 @@
 export class Etudiant {
-  idE: number;
+  idE: number=1;
 }

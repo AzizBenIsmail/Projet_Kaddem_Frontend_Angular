@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Projet } from 'app/models/Projet';
+import { NotifService } from 'app/Services/Notification/notif.service';
 import { ProjetService } from 'app/Services/ProjetService/projet.service';
 
 @Component({
@@ -16,7 +17,10 @@ export class UpdateProjetComponent implements OnInit {
  // projet : Projet=new Projet();
   date: string;
   startDate= new Date();
-  constructor(private _projetService: ProjetService ,private _routerUp: Router ,  private _activatedRoute: ActivatedRoute) { }
+  clicked :boolean = false;
+  constructor(private _notificationService: NotifService ,private _projetService: ProjetService ,private _routerUp: Router ,  private _activatedRoute: ActivatedRoute) { 
+    this._notificationService.requestPermission();  
+  }
   
   ngOnInit(): void {
 
@@ -34,14 +38,24 @@ export class UpdateProjetComponent implements OnInit {
 
   
     }
+    notify() {  
 
+      console.log("test");
+        let data: Array < any >= [];  
+        data.push({  
+            'title': 'Alerte',  
+            'alertContent': 'Un projet a été modifié avec succées'  
+        });  
+       
+        this._notificationService.generateNotification(data);  
+    }  
 
   enregistrerProjet(data:Projet){
-      
+   
     this._projetService.updateProjet(data,this.projet.idProjet).subscribe(
       data => {
         console.log('response', data);
-      
+   
         this.reloadComponent();
       })
 
@@ -56,6 +70,7 @@ export class UpdateProjetComponent implements OnInit {
     this._routerUp.routeReuseStrategy.shouldReuseRoute = () => false;
     this._routerUp.onSameUrlNavigation = 'reload';
     this._routerUp.navigate(['/Projets']);
+    this.notify();
 }
 
 
