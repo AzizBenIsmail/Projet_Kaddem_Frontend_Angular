@@ -18,6 +18,12 @@ export const ROUTES: RouteInfo[] = [
 
   { path: "/Projets", title: "Projets", icon: "table_view", class: "" },
 
+  { path: "/Contrat", title: "Contrat", icon: "wysiwyg", class: "" },
+
+  { path: "/Reclaim", title: "Reclamation", icon: "sms_failed", class: "" },
+
+  { path: "/Projets", title: "Projets", icon: "table_view", class: "" },
+
   {
     path: "/table-list",
     title: "Table List",

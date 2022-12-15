@@ -50,6 +50,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import { TachesFrontComponent } from './taches-front/taches-front.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ContratModule } from './Admin/Contrat/contrat.module';
+import { ReclaimModule } from './Admin/Reclaim/reclaim.module';
 
 
 @NgModule({
@@ -74,7 +76,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         // CreateEquipeComponent,
         NotFoundComponent,
         TachesFrontComponent
-    ],
+    ],  
     providers: [EquipeService, ProjetService],
     bootstrap: [AppComponent],
     imports: [
@@ -107,12 +109,14 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
         MatInputModule,
         UniversiteModule,
         ProjetsModule,
-        MatCardModule,
-        ProjetsModule,
+        MatCardModule,     
+        ProjetsModule,  
         ModalModule,
         DepartementModule,
         MatTooltipModule,
-        DragDropModule
+        DragDropModule,
+        ContratModule,
+        ReclaimModule
     ]
 })
 export class AppModule {}

@@ -20,7 +20,12 @@ const routes: Routes = [
   {path: "Equipes",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
           import("./Admin/EquipesManagment/equipes-admin/equipes-admin.module").then((m) => m.EquipesAdminModule),},],
   },
-
+  {path: "Contrat",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
+          import("./Admin/Contrat/contrat.module").then((m) => m.ContratModule),},],
+  },
+  {path: "Reclamation",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
+          import("./Admin/Reclaim/reclaim.module").then((m) => m.ReclaimModule),},],
+  },
   {path: "Projets",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
         import("./Admin/projets/projets.module").then((m) => m.ProjetsModule),},],
   },
