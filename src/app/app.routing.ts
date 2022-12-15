@@ -2,20 +2,21 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
+import { UpdateThreadComponent } from './Admin/Forum/Thread/update-thread/update-thread.component';
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
 import { ListReponseComponent } from "./Admin/Forum/Reponse/list-reponse/list-reponse.component";
 import { ForumComponent } from "./Admin/Forum/forum/forum.component";
 import { DetailsThreadComponent } from "./Admin/Forum/Thread/details-thread/details-thread.component";
-import {PricingComponent} from './pricing/pricing.component';
+import { TachesFrontComponent } from "./taches-front/taches-front.component";
 
 const routes: Routes = [
   {path: "",redirectTo: "dashboard",pathMatch: "full",},
-  /*{path: "Details",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
+  {path: "Details",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
     import("./Admin/DetailEquipesManagement/detail-equipe-admin/detail-equipe-admin.module")
         .then((m) => m.DetailEquipeAdminModule),},],
-  },*/
+  },
   {path: "Equipes",component: AdminLayoutComponent,children: [{path: "",loadChildren: ()=>
           import("./Admin/EquipesManagment/equipes-admin/equipes-admin.module").then((m) => m.EquipesAdminModule),},],
   },
@@ -35,24 +36,17 @@ const routes: Routes = [
   {path: "Departement",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
           import("./Admin/departement/departement.module").then((m) => m.DepartementModule),},],
   },
-
+  {path: "front",component: TachesFrontComponent
+},
   {path: "",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
           import("./layouts/admin-layout/admin-layout.module").then((m) => m.AdminLayoutModule),},],
   },
 
-  /*****************************************Reclaim**********************************************/
-  {path: "Reclaim",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
-          import("./Admin/Reclaim/reclaim.module").then((m) => m.ReclaimModule),},],
-  },
-  /*****************************************Contrat**********************************************/
-  {path: "Contrat",component: AdminLayoutComponent,children: [{path: "",loadChildren: () =>
-          import("./Admin/Contrat/contrat.module").then((m) => m.ContratModule),},],
-  },
-  {path: "pricing", component:PricingComponent},
-
   {path: "Forum",component: AdminLayoutComponent,children: [{path: "all",component: ForumComponent,},
     {path: "all/thread",component: ListThreadComponent,},
-  {path: "all/reponse",component: DetailsThreadComponent,}],
+  {path: "all/reponse",component: ListReponseComponent,},
+  {path: "all/reponse/:r/:id",component: DetailsThreadComponent,},
+  {path: "all/reply/:id",component: UpdateThreadComponent,}],
   },
   
 ];

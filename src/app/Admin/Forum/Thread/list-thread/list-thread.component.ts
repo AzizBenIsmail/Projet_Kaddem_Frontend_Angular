@@ -22,17 +22,20 @@ export class ListThreadComponent implements OnInit {
   thread: Thread = new Thread();
   errorMessage: string = "";
   selectedThread: Thread = new Thread();
+  lista:any;
 
   @ViewChild(CreateThreadComponent) child: CreateThreadComponent | undefined;
   constructor(private threadService: ThreadService) {
     this.threadService.findAll().subscribe(
       (data) => {
+        console.log(data)
+        this.lista=data
         this.errorMessage = "";
         this.threads = data;
         //  console.log(data)
 
         for (let i = 0; i < data.length; i++) {
-          this.threads[i].etudiant.ide = data[i].etudiant.idE;
+           this.threads[i].etudiant.ide = data[i].etudiant.idE;
         }
         console.log(this.threads);
       },
@@ -52,7 +55,15 @@ export class ListThreadComponent implements OnInit {
       this.threads.push(thread);
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.threadService.findAll().subscribe(
+        (data:any)=>{
+          console.log(data)
+        }
+    )
+
+  }
 
   editThreadRequest(thread: Thread) {
     this.selectedThread = Object.assign({}, thread);

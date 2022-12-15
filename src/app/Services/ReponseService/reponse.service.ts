@@ -20,7 +20,6 @@ export class ReponseService {
     return this.http.post<Reponse>(URL+'/updateReponse',reponse)
    }
    findAll(): Observable<Reponse[]>{
-    console.log(URL+'/');
     
     return this.http.get<Reponse[]>(URL+'/')
    }
@@ -29,5 +28,10 @@ export class ReponseService {
    }
    delete(reponse : Reponse): Observable<Reponse>{
     return this.http.get<Reponse>(URL+'/deleteReponse/'+reponse.id)
+   }
+   
+   reponsebythread(id : number): Observable<Reponse[]>{
+    
+    return this.http.get<Reponse[]>(URL+'/thread/'+id)
    }
 }

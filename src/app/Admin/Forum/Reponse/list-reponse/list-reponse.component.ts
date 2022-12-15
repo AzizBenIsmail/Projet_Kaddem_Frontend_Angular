@@ -43,6 +43,14 @@ export class ListReponseComponent implements OnInit {
     );
   }
 
+
+  btnClickup(Reponse:Reponse) {
+    this.router.navigateByUrl('/Forum/all/reponse/1/'+Reponse.id);
+};
+btnClickw(Reponse:Reponse) {
+  this.router.navigateByUrl('/Forum/all/reponse/0/'+Reponse.id);
+};
+
   ngOnInit(): void {}
 
   addreponse() {
@@ -83,12 +91,9 @@ export class ListReponseComponent implements OnInit {
     this.child.update = true;
     this.child?.showreponseModal();
   }
-  createReponseRequest() {
-    this.child?.showreponseModal();
-  }
 
   //TO DOOOOO
-  deleteReponseRequest(Reponse: Reponse, ind: number) {
+  deletereponseRequest(Reponse: Reponse, ind: number) {
     this.ReponseService.delete(Reponse).subscribe(
       () => {
         this.Reponses.splice(ind, 1);

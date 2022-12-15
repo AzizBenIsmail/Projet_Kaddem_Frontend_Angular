@@ -6,6 +6,7 @@ import {Universite} from 'app/models/Universite';
 import {UniversiteserviceService} from 'app/Services/ServicesUniversite/universiteservice.service';
 // import {Swal} from 'sweetalert2/dist/sweetalert2.js';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import {Router} from '@angular/router';
 
 declare var $: any;
 
@@ -19,32 +20,35 @@ export class AllUniversiteComponent implements OnInit {
     universites: any;
     dataSource = new MatTableDataSource<Universite>();
 
-    constructor(private universiteService: UniversiteserviceService, @Inject(DOCUMENT) private doc: Document) {
+    constructor(private _routerUp: Router,private universiteService: UniversiteserviceService, @Inject(DOCUMENT) private doc: Document) {
     }
 
     ngOnInit(): void {
+        this.refresh();
+
+
+
+
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/639090a0daff0e1306db5cd3/1gjmb9suh';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    }
+
+    refresh(): void {
+        //this.showNotification('top', 'left');
         this.universiteService.findAllUniversite().subscribe(
             (d) => {
                 console.log(d);
                 this.universites = d;
             }
         )
-
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function () {
-            var s1 = document.createElement('script'), s0 = document.getElementsByTagName('script')[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/6387af92daff0e1306da4b99/1gj50bndm';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-
-    }
-
-    refresh(): void {
-        //this.showNotification('top', 'left');
-        this.doc.defaultView.location.reload();
+       // this.doc.defaultView.location.reload();
     }
 
     Supprimer(id: number) {
@@ -53,10 +57,13 @@ export class AllUniversiteComponent implements OnInit {
             console.log(id)
             this.dataSource.data = this.dataSource.data.filter(
                 (universites: Universite) => universites.idUniversite !== id
+
             );
+            this.refresh();
         });
-         this.refresh();
+
     }
+
 
     showNotification(from, align) {
         const type = ['', 'info', 'success', 'warning', 'danger'];

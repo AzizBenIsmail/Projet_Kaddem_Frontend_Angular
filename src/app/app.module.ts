@@ -1,7 +1,7 @@
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+// import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app.routing";
@@ -20,6 +20,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatSelectModule } from "@angular/material/select";
 import { MatChipsModule } from "@angular/material/chips";
+import { EquipesAdminModule } from "./Admin/EquipesManagment/equipes-admin/equipes-admin.module";
 import { EquipesAdminManagmentComponent } from "./Admin/EquipesManagment/equipes-admin-managment/equipes-admin-managment.component";
 import { UpdateEquipeComponent } from "./Admin/EquipesManagment/update-equipe/update-equipe.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
@@ -32,7 +33,7 @@ import { UniversiteModule } from './Admin/universite/universite.module';
 import { UniversiteserviceService } from "./Services/ServicesUniversite/universiteservice.service";
 import { AddEquipeComponent } from "./Admin/EquipesManagment/add-equipe/add-equipe.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create-thread.component";
+ import { CreateThreadComponent } from "./Admin/Forum/Thread/create-thread/create-thread.component";
 import { UpdateThreadComponent } from "./Admin/Forum/Thread/update-thread/update-thread.component";
 import { ListThreadComponent } from "./Admin/Forum/Thread/list-thread/list-thread.component";
 import { ContactAdminDevEquipesComponent } from "./Admin/EquipesManagment/contact-admin-dev-equipes/contact-admin-dev-equipes.component";
@@ -45,69 +46,73 @@ import { CreateEquipeComponent } from "./Admin/EquipesManagment/createEquipe/cre
 import { NotFoundComponent } from "./error/not-found/not-found.component";
 import { MatCardModule } from "@angular/material/card";
 import { DepartementModule } from "./Admin/departement/departement.module";
-import {ContratModule} from './Admin/Contrat/contrat.module';
-import {ReclaimModule} from './Admin/Reclaim/reclaim.module';
-import { PricingComponent } from './pricing/pricing.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import { TachesFrontComponent } from './taches-front/taches-front.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 @NgModule({
-  imports: [
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    ComponentsModule,
-    RouterModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ContratModule,
-    ReclaimModule,
-    MatIconModule,
-    MatButtonModule,
-    AdminLayoutModule,
-    MatRippleModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatTooltipModule,
-    MatChipsModule,
-    NgbModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatDialogModule,
-    MatTableModule,
-    MatInputModule,
-    UniversiteModule,
-    ProjetsModule,
-    MatCardModule,
-    ProjetsModule,
-    ModalModule,
-    DepartementModule,
-    MatTooltipModule,
-  ],
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
-    EquipesComponent,
-    EquipesComponent,
-    //EquipesAdminManagmentComponent,
-    UpdateEquipeComponent,
-    AddEquipeComponent,
-    ConfirmDialogComponent,
-    // DetailEquipeAdminManagmentComponent,
-    CreateThreadComponent,
-    UpdateThreadComponent,
-    ListThreadComponent,
-    //ContactAdminDevEquipesComponent,
-    DetailsThreadComponent,
-    ListReponseComponent,
-    CreateReponseComponent,
-    ForumComponent,
-    //CreateEquipeComponent,
-    NotFoundComponent,
-    PricingComponent,
-  ],
-  providers: [EquipeService, ProjetService],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        AdminLayoutComponent,
+        EquipesComponent,
+        // EquipesComponent,
+        // EquipesAdminManagmentComponent,
+        // UpdateEquipeComponent,
+        // AddEquipeComponent,
+        ConfirmDialogComponent,
+        // DetailEquipeAdminManagmentComponent,
+        CreateThreadComponent,
+        UpdateThreadComponent,
+        ListThreadComponent,
+        // ContactAdminDevEquipesComponent,
+        DetailsThreadComponent,
+        ListReponseComponent,
+        CreateReponseComponent,
+        ForumComponent,
+        // CreateEquipeComponent,
+        NotFoundComponent,
+        TachesFrontComponent
+    ],
+    providers: [EquipeService, ProjetService],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ComponentsModule,
+        RouterModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatIconModule,
+        MatButtonModule,
+        AdminLayoutModule,
+        MatRippleModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatTooltipModule,
+        MatChipsModule,
+        NgbModule,
+        EquipesAdminModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatCheckboxModule,
+        MatDialogModule,
+        MatTableModule,
+        MatInputModule,
+        UniversiteModule,
+        ProjetsModule,
+        MatCardModule,
+        ProjetsModule,
+        ModalModule,
+        DepartementModule,
+        MatTooltipModule,
+        DragDropModule
+    ]
 })
 export class AppModule {}
