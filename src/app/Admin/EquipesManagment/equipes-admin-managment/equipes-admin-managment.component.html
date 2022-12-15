@@ -50,7 +50,7 @@
                 <div class="card-footer">
                     <div class="stats">
                         <i class="material-icons text-danger">warning</i>
-                        <a href="javascript:void(0)">Get More Space...</a>
+                        <a href="javascript:void(0)">Ajoutez des equipes !...</a>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="stats">
-                        <i class="material-icons">date_range</i> Last 24 Hours
+                        <i class="material-icons"></i> Derniere 24 Hours
                     </div>
                 </div>
             </div>
@@ -205,10 +205,11 @@
     <div  class="container-fluid">
 
         <div class="dls-menu-item">
-            <button style="margin: 10px" class="btn btn-md btn-outline-primary" (click)="onPress()"><i class="fa fa-users"></i>   Ajouter une equipe</button>
-            <button style="margin: 10px" class="btn btn-md btn-outline-primary" (click)="onPress2()"><i class="fa fa-mail-reply"></i>    Contacter le developpeur de cette partie</button>
-            <button style="margin: 10px" class="btn btn-md btn-outline-primary" (click)="onPress3()"><i class="fa fa-download"></i>   Telecharger</button>
-            <button style="margin: 10px" data-inline="true" class="btn btn-outline-primary " (click)="refresh()" ><i class="fa fa-refresh"></i>   Actualiser La page</button>
+
+            <button style="margin: 10px" [ngClass]="['btn', 'btn-md btn-outline-primary']"  (click)="onPress()"><i class="fa fa-users"></i>   Ajouter une equipe</button>
+            <button style="margin: 10px" [ngClass]="['btn', 'btn-md btn-outline-primary']"  (click)="onPress2()"><i class="fa fa-mail-reply"></i>    Contacter le developpeur de cette partie</button>
+            <button style="margin: 10px" [ngClass]="['btn', 'btn-md btn-outline-primary']"  (click)="onPress3()"><i class="fa fa-download"></i>   Telecharger</button>
+            <button style="margin: 10px" data-inline="true" [ngClass]="['btn', 'btn-md btn-outline-primary']"  (click)="refresh()" ><i class="fa fa-refresh"></i>   Actualiser La page</button>
 
         </div>
 <!--        <div class="dls-menu-item">-->
@@ -220,7 +221,6 @@
 
         <div id="comp-render" *ngIf="display">
             <app-create-equipe></app-create-equipe>
-
         </div>
         <div  *ngIf="display2">
 
@@ -230,6 +230,8 @@
             <app-export-excel></app-export-excel>
 
         </div>
+
+
 
         <div >
             <p>
@@ -305,7 +307,8 @@
                             <button mat-button (click)="element.isEdit = !element.isEdit">
                                 <mat-icon style="color: green">edit</mat-icon>
                             </button>
-                            <button
+
+                            <button  (mouseover)="onPress4()"
                                     mat-button
                                     class="button-remove"
                                     (click)="removeRow(element.idEquipe)"
@@ -588,6 +591,10 @@
             </div><!-- /.modal-dialog -->
         </div>
 
+
+        <div  *ngIf="display4">
+            <app-create-equipe-child (messageEvent)="receiveMessage($event)" [childMessage]="parentMessage"></app-create-equipe-child>
+        </div>
 
 
 

@@ -8,10 +8,12 @@ import {AdminLayoutComponent} from '../../../layouts/admin-layout/admin-layout.c
 import {ContactAdminDevEquipesComponent} from '../contact-admin-dev-equipes/contact-admin-dev-equipes.component';
 import {ErrorsComponent} from '../errors/errors/errors.component';
 import {ExportExcelComponent} from '../export-excel/export-excel.component';
+import {CreateEquipeChildComponent} from '../create-equipe-child/create-equipe-child.component';
 
 const routes: Routes = [
 {path:'', component:EquipesAdminManagmentComponent},
   {path:'addEquipe', component:CreateEquipeComponent},
+    {path:'addEquipe2', component:CreateEquipeChildComponent},
     {path:'SendEmail', component:ContactAdminDevEquipesComponent},
   {path:'getEquipeById/:id', component:DetailEquipeComponent},
     {path:'errors', component:ErrorsComponent},

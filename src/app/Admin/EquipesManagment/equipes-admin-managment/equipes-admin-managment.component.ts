@@ -18,6 +18,7 @@ import {DOCUMENT} from '@angular/common';
 import DataTables from 'datatables.net';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import {PageEvent} from '@angular/material/paginator';
+import {CreateEquipeChildComponent} from '../create-equipe-child/create-equipe-child.component';
 @Component({
   selector: 'app-equipes-admin-managment',
   templateUrl: './equipes-admin-managment.component.html',
@@ -39,6 +40,7 @@ export class EquipesAdminManagmentComponent   {
     {value: 'SENIOR', viewValue: 'SENIOR'},
     {value: 'EXPERT', viewValue: 'EXPERT'},
   ];
+
   listEquipe:any;
 text:String="";
  // @ViewChild(AddEquipeComponent) addview !:AddEquipeComponent
@@ -288,6 +290,7 @@ if(confirm("etes vous sure de changer la validité de cette equipe ?")){
 
 
   display = false;
+    display4 = false;
     display2 = false;
     display3 = false;
   displayMembres=false;
@@ -298,6 +301,12 @@ if(confirm("etes vous sure de changer la validité de cette equipe ?")){
     this.display = !this.display;
   }
 
+    onPress4() {
+        //this.display = true;
+
+        //To toggle the component
+        this.display4 = !this.display4;
+    }
 
 
     onPress2() {
@@ -413,9 +422,12 @@ if(confirm("etes vous sure de changer la validité de cette equipe ?")){
             const FILEURI = canvas.toDataURL('image/jpg');
             let PDF = new jsPDF('l', 'pt', 'letter');
             let position = 0;
-
+            var img = new Image()
+            img.src = 'assets/img/html.png'
+            PDF.addImage(img, 'png', 10, 78, 12, 15)
             PDF.text("Mounaaaaaaaaaaaaaaaaaa", 20, 20);
-            PDF.addImage(FILEURI, 'JPG', 0, position, fileWidth, fileHeight);
+            PDF.addImage("img/", 'JPG', 0, position, fileWidth, fileHeight);
+
             PDF.save('equipesEsprit.pdf');
         });
     }
@@ -492,4 +504,47 @@ if(confirm("etes vous sure de changer la validité de cette equipe ?")){
         this.router.onSameUrlNavigation = 'reload';
         this.router.navigate(['/Equipes']);
     }
+    parentMessage = "Attention !!!!"
+    @ViewChild(CreateEquipeChildComponent) child
+    message: string;
+    ngAfterViewInit() {
+        this.message = this.child.childMessage
+    }
+
+    receiveMessage($event) {
+        this.message = $event
+        alert(this.message);
+    }
+
+
+
+    @ViewChild('htmlData', {static: false}) pdfTable: ElementRef;
+
+
+    public downloadAsPDF() {
+        const doc = new jsPDF();
+
+        const specialElementHandlers = {
+            '#editor': function (element, renderer) {
+                return true;
+            }
+        };
+
+        const pdfTable = this.pdfTable.nativeElement;
+
+        // doc.html(pdfTable.innerHTML, 15, 15, {
+        //     width: 190,
+        //     'elementHandlers': specialElementHandlers
+        // });
+
+
+        doc.html(pdfTable, {
+            callback: (doc) => {
+                doc.output("dataurlnewwindow");
+            }
+        });
+
+        doc.save('tableToPdf.pdf');
+    }
+
 }

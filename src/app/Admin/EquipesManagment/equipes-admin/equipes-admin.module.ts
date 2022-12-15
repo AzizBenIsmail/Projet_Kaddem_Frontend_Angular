@@ -27,7 +27,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {ErrorsComponent} from '../errors/errors/errors.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import {ExportExcelComponent} from '../export-excel/export-excel.component';
-
+import {CreateEquipeChildComponent} from '../create-equipe-child/create-equipe-child.component';
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import {ExportExcelComponent} from '../export-excel/export-excel.component';
       EquipesAdminManagmentComponent,
       ContactAdminDevEquipesComponent,
       ErrorsComponent,
-      ExportExcelComponent
+      ExportExcelComponent,
+      CreateEquipeChildComponent
 
   ],
     imports: [
