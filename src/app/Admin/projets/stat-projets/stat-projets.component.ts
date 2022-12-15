@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Projet } from 'app/models/Projet';
 import * as Chartist from 'chartist';
@@ -11,7 +11,7 @@ import * as Chartist from 'chartist';
 })
 export class StatProjetsComponent implements OnInit {
   @Input()projets:Projet[];
-  
+  fontSizePx = 16;
   nbPFE:number=0;
   nbPIDEV:number=0;
   nbJEU:number=0;
@@ -30,6 +30,8 @@ export class StatProjetsComponent implements OnInit {
 
 
   }
+  
+
   reloadComponent() {
     this._router.routeReuseStrategy.shouldReuseRoute = () => false;
     this._router.onSameUrlNavigation = 'reload';

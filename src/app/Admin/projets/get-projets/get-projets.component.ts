@@ -1,6 +1,6 @@
 import { animate, AnimationMetadata, style } from '@angular/animations';
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Projet } from 'app/models/Projet';
 import { ProjetService } from 'app/Services/ProjetService/projet.service';
@@ -9,6 +9,10 @@ import { ProjetResolver } from '../ProjetResolver'
 import { Workbook } from 'exceljs/dist/exceljs.min.js';
 import * as fs from 'file-saver';
 import { PageEvent } from '@angular/material/paginator';
+
+import { map, Observable } from 'rxjs';
+import { Breakpoints } from '@angular/cdk/layout';
+
 @Component({
   selector: 'app-get-projets',
   templateUrl: './get-projets.component.html',
@@ -34,7 +38,8 @@ existe : Number ;
  tableSize: number = 3;
 nomProjet : String;
 clickedNotifUpdate:boolean=false;
-
+color :string = 'rgb(178, 175, 175)';
+fontSizePx = 12;
 
  text:any = {
   
@@ -55,7 +60,7 @@ clickedNotifUpdate:boolean=false;
 
 
    constructor(private _projetService: ProjetService ,private router: Router ,  private _activatedRoute: ActivatedRoute
-    ) {
+  ) {
       
     }
  
@@ -70,10 +75,10 @@ clickedNotifUpdate:boolean=false;
     
     this.date= yyyy + '-' + mm + '-' + dd;
    
-      this.listProjets();
+     //this.listProjets();
       
  console.log("initialisation des projets");
-      this._activatedRoute.data.subscribe((data: { projets: Projet[]}) => this.projets = data.projets );  
+     this._activatedRoute.data.subscribe((data: { projets: Projet[] }) => this.projets = data.projets  ) ;  
 
 
   
@@ -153,7 +158,9 @@ exportExcel(){
   workbook.xlsx.writeBuffer().then((data) => {
     let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
     fs.saveAs(blob, 'ProjetsData.xlsx');
+  
   })
+  
 }
 
 
@@ -167,7 +174,7 @@ exportExcel(){
    
        this._projetService.getProjets(0,30).subscribe(data => {
          this.projets = data;
-      
+        
         
        });
       
@@ -218,7 +225,9 @@ exportExcel(){
      this.clickedAddProjet=true;
     
     }
- 
+    openDoc(pdfUrl: string, startPage: number ) {
+      window.open(pdfUrl + '#page=' + startPage, '_blank');
+    }
     currentStyles: Record<string, string> = {};
 
     setCurrentStyles() {
