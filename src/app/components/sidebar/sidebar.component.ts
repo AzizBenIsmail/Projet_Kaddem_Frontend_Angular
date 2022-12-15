@@ -20,7 +20,7 @@ export const ROUTES: RouteInfo[] = [
 
   { path: "/Contrat", title: "Contrat", icon: "wysiwyg", class: "" },
 
-  { path: "/Reclaim", title: "Reclamation", icon: "sms_failed", class: "" },
+  { path: "/Reclamation", title: "Reclamation", icon: "sms_failed", class: "" },
 
   { path: "/Projets", title: "Projets", icon: "table_view", class: "" },
 
