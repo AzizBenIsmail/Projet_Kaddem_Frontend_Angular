@@ -27,6 +27,22 @@ import { UpdateTacheComponent } from './update-tache/update-tache.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CountdownModule } from "ng2-countdown-timer";
+import { StatProjetsComponent } from './stat-projets/stat-projets.component';
+import { StatTachesComponent } from './stat-taches/stat-taches.component';
+import { HighlightDirective } from './highlight.directive';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from './loaderIntercepter';
+import { LoaderComponent } from './loader/loader.component';
+import { SizerComponentComponent } from './sizer-component/sizer-component.component';
+
+
+
+
+
+
+
+
 
 
 
@@ -37,14 +53,18 @@ import { CountdownModule } from "ng2-countdown-timer";
     NewDirectDirective,
     
     ErrorsComponent,
-   
+   StatProjetsComponent,
+   StatTachesComponent,
     AddProjetComponent,
     AddTacheComponent,
     GetProjetsComponent,
     GetEtudiantByTacheComponent,
     GetTachesComponent,
     UpdateProjetComponent,
-    UpdateTacheComponent
+    UpdateTacheComponent,
+    HighlightDirective,
+    LoaderComponent,
+    SizerComponentComponent
     
     
     ],
@@ -64,10 +84,14 @@ import { CountdownModule } from "ng2-countdown-timer";
         DragDropModule,
      MatInputModule,
     NgxPaginationModule,
-    CountdownModule
+    CountdownModule,
+    MatProgressSpinnerModule
    
  
         
-  ]
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  ],
 })
 export class ProjetsModule { }

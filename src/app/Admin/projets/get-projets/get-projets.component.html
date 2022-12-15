@@ -1,3 +1,5 @@
+
+  
 <div class="main-content">
    
 
@@ -7,7 +9,7 @@
 
 
 
-
+          
             
             <div id="noNotif">
                 
@@ -19,7 +21,7 @@
               
 
                 <section *hideAfter="5000; then placeholder" class="banner primary">
-               <div class="alert alert-success alert-white rounded">
+               <div class="alert alert-white alert-white rounded">
                
                 <div class="icon">
                     <i class="fa fa-check"></i>
@@ -95,12 +97,21 @@
                 &nbsp;  
                
                 <i class="fa fa-file-excel-o" aria-hidden="true" (click)="exportExcel()" ></i>
-        
+
+                
+                &nbsp;  
+                <i class="fa fa-bar-chart" aria-hidden="true"  (click)="stats()" ></i>
+               
             </h4>
                 <p class="card-category"></p>
             </div>
+           
             <div class="card-body">
                 <div zetFadeInOut class="table-responsive">
+                   
+
+
+
                     <table class="table">
                         <thead class=" text-primary">
                             <th>
@@ -127,27 +138,28 @@
                         </thead>
                         <tbody>
                        <!--  {{date}} -->
-                            <tr *ngFor="let projet of projets  | paginate
+                            <tr  [appHighlight]="color" *ngFor="let projet of projets   |paginate
                             : {
                                 itemsPerPage: tableSize,
                                 currentPage: page,
                                 totalItems: count
                               };
-                        let i = index" [ngClass]="{
+                        let i = index"  [ngClass]="{
                                
                            
                           
                                 'alert-danger':projet.typeProjet === 'PFE'
                               
                               }">
-                               
+                              
                                 <td > {{ projet.nomProjet }}</td>
+                            
                                 <td>{{ projet.dureeProjet }}</td>
                                 <td>{{ projet.dateDebutP }}</td>
                                 <td>{{ projet.dateFinP }}</td>
                                 <td>{{ projet.typeProjet }}</td>
 
-
+                              
                                 <td>  <countdown (reached)="callback($event)" [text]="text" units="  Days | Hours | Minutes | Seconds"   [end]="projet.dateFinP"></countdown></td>
                                 <td>
                                    
@@ -161,7 +173,7 @@
                                    
                                 
                                 &nbsp;
-                                    <a  (click)="getTaches(projet)" class="fa fa-search" ></a>
+                                    <a [routerLink]="['/Projets/getTaches/'+projet.idProjet]" class="fa fa-search" ></a>
 
                                   
                                 </td>
@@ -170,15 +182,18 @@
                             </tr>     
                         </tbody>
                     </table>
-
+                   
                     <div class="d-flex justify-content-center">
+                     
                         <pagination-controls
                           previousLabel="Prev"
                           nextLabel="Next"
                           (pageChange)="onTableDataChange($event)"
                          
                         >
+                  
                         </pagination-controls>
+                 
                       </div>
 
 
@@ -192,8 +207,9 @@
                 </div>
               
                 <div *ngIf="clicked">
- 
+                    
                     <app-stat-projets  [projets]="projets"  ></app-stat-projets>
+               
                      </div>    
 
                      <div *ngIf="clickedAddProjet">

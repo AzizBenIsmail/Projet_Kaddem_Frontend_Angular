@@ -28,7 +28,7 @@ export class CreateThreadComponent implements OnInit {
 
   addThread() {
     this.etudiant.idE = 1;
-    // this.thread.etudiant = this.etudiant;
+    this.thread.etudiant = this.etudiant;
     this.threadService.create(this.thread).subscribe(
       (data) => {
         console.log("added successfully");

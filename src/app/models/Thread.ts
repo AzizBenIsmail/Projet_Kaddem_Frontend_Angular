@@ -4,10 +4,10 @@ export class Thread {
   id: number;
   question: String;
   nb_likes: number = 0;
-  postDate: Date = new Date();
+  postDate: Date;
   display: boolean;
   object: String;
-  // etudiant: Etudiant;
+  etudiant: Etudiant;
   verified: boolean = false;
-  updatedAt: Date = new Date();
+  updatedAt: Date;
 }

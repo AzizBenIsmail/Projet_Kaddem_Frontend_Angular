@@ -3,8 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Projet } from 'app/models/Projet';
 import { Tache } from 'app/models/Tache';
 import { ProjetService } from 'app/Services/ProjetService/projet.service';
+
 import { TacheService } from 'app/Services/TacheService/tache.service';
 import * as Chartist from 'chartist';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-get-taches',
@@ -23,18 +25,33 @@ export class GetTachesComponent implements OnInit {
  projetBinding:Projet;
  tacheBinding:Tache;
  progress:number=0;
+ color :string = 'rgb(178, 175, 175)';
+
+
    constructor(private _TacheService: TacheService , private _projetService: ProjetService, private _routerAdd: Router,
     private _activatedRoute: ActivatedRoute ) {
+     
     
     }
    // id : number;
     ngOnInit(): void {
-     
-    this.listTaches();
+
+      
+
+      const isIdPresent = this._activatedRoute.snapshot.paramMap.has('id');
+      console.log(isIdPresent);
+      if (isIdPresent) {
+          const id = +this._activatedRoute.snapshot.paramMap.get('id');
+         
+          this._TacheService.getTachesByProjet(id).subscribe(data => {
+            this.taches = data;
+          });
+      }  
+   // this.listTaches();
     
    }
    
-
+  
   listTaches() {
     this._TacheService.getTachesByProjet(this.projet.idProjet).subscribe(data => {
       this.taches = data;
@@ -65,8 +82,9 @@ export class GetTachesComponent implements OnInit {
     this.clickedUpdateTache=true;
   }
  
- 
- getEtudiant(id:number){
-
+  stats()
+ {
+  this.clicked=true;
  }
+ 
 }

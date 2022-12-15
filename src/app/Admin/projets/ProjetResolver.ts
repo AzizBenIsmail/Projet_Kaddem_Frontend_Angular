@@ -11,6 +11,7 @@ export class ProjetResolver implements Resolve<Projet[]> {
   constructor(private projets: ProjetService) {}
   resolve(): Observable<Projet[]> {
     console.log("route resolver");
+  
     return this.projets.getProjets(0,30);
    
   }

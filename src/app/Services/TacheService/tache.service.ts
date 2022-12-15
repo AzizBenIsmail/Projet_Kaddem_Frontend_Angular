@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tache } from 'app/models/Tache';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class TacheService {
   private getUrl: string= "http://localhost:8083/kaddem/Tache/";
+  
   constructor(private _httpClient: HttpClient) { }
+  loader= new BehaviorSubject<boolean>(true);
   getTaches(): Observable<Tache[]> {
     return this._httpClient.get<Tache[]>(this.getUrl+"findAllTaches/").pipe(
       map(response => response)
