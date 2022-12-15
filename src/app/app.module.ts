@@ -20,7 +20,6 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatSelectModule } from "@angular/material/select";
 import { MatChipsModule } from "@angular/material/chips";
-import { EquipesAdminModule } from "./Admin/EquipesManagment/equipes-admin/equipes-admin.module";
 import { EquipesAdminManagmentComponent } from "./Admin/EquipesManagment/equipes-admin-managment/equipes-admin-managment.component";
 import { UpdateEquipeComponent } from "./Admin/EquipesManagment/update-equipe/update-equipe.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
@@ -46,6 +45,9 @@ import { CreateEquipeComponent } from "./Admin/EquipesManagment/createEquipe/cre
 import { NotFoundComponent } from "./error/not-found/not-found.component";
 import { MatCardModule } from "@angular/material/card";
 import { DepartementModule } from "./Admin/departement/departement.module";
+import {ContratModule} from './Admin/Contrat/contrat.module';
+import {ReclaimModule} from './Admin/Reclaim/reclaim.module';
+import { PricingComponent } from './pricing/pricing.component';
 
 @NgModule({
   imports: [
@@ -57,6 +59,8 @@ import { DepartementModule } from "./Admin/departement/departement.module";
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
+    ContratModule,
+    ReclaimModule,
     MatIconModule,
     MatButtonModule,
     AdminLayoutModule,
@@ -67,7 +71,6 @@ import { DepartementModule } from "./Admin/departement/departement.module";
     MatTooltipModule,
     MatChipsModule,
     NgbModule,
-    EquipesAdminModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatCheckboxModule,
@@ -87,7 +90,7 @@ import { DepartementModule } from "./Admin/departement/departement.module";
     AdminLayoutComponent,
     EquipesComponent,
     EquipesComponent,
-    EquipesAdminManagmentComponent,
+    //EquipesAdminManagmentComponent,
     UpdateEquipeComponent,
     AddEquipeComponent,
     ConfirmDialogComponent,
@@ -95,13 +98,14 @@ import { DepartementModule } from "./Admin/departement/departement.module";
     CreateThreadComponent,
     UpdateThreadComponent,
     ListThreadComponent,
-    ContactAdminDevEquipesComponent,
+    //ContactAdminDevEquipesComponent,
     DetailsThreadComponent,
     ListReponseComponent,
     CreateReponseComponent,
     ForumComponent,
-    CreateEquipeComponent,
+    //CreateEquipeComponent,
     NotFoundComponent,
+    PricingComponent,
   ],
   providers: [EquipeService, ProjetService],
   bootstrap: [AppComponent],
